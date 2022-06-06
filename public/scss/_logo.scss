@@ -1,0 +1,23 @@
+.logo-badge {
+  background-color: $primary-color;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+}
+
+#logo {
+	stroke-dasharray: 750;
+	animation: textDraw 3s ease-out 0.5s;
+  width: 8rem;
+  filter: invert(100%) sepia(100%) saturate(15%) hue-rotate(255deg) brightness(103%) contrast(106%);
+}
+@keyframes textDraw {
+  0% {
+	stroke-dashoffset: 800;
+ }
+}
