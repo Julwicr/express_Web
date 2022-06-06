@@ -3,7 +3,6 @@ const path = require('path');
 
 const app = express();
 app.set('view engine', 'ejs');
-app.set('views', 'public/views');
 
 const PORT = process.env.PORT || 3000;
 
@@ -16,16 +15,17 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
+app.get('/about', (req, res) => {
+  res.render('about');
+});
+
 app.get('/contact', (req, res) => {
   res.render('contact');
 });
 
-app.get('/about', (req, res) => {
-  res.render('/about');
-});
 
-// Set static folder
-// app.use(express.static(path.join(__dirname, './views/public')));
+// Public directory
+app.use(express.static(path.join(__dirname, 'public')));
 
 // 404 not found
 app.use((req, res) => {

@@ -1,0 +1,16 @@
+#navigation {
+  background-color: $blue;
+  margin: 0;
+  display: flex;
+  justify-content: start;
+  a {
+    color: white;
+    transition: 0.2s ease-out;
+    text-decoration: none;
+    padding: 0px 2rem;
+    font-weight: bold;
+  }
+  a:hover {
+    color: red;
+  }
+}

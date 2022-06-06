@@ -20,6 +20,7 @@ body {
 }
 
 #homecanvas {
+  display: none;
   position: relative;
   z-index: 10;
   width: 100vw;
@@ -30,11 +31,15 @@ body {
   width: 50vw;
   background-color: #f7f7f7;
   border-radius: 5px;
-  margin: 0px 50px;
+  margin: 0px 25vw;
 }
 .greetings h1 {
   margin: 0;
   padding: 5rem;
+}
+
+.globe {
+  position: absolute;
 }
 
 .logo-badge {
@@ -60,6 +65,22 @@ body {
   0% {
     stroke-dashoffset: 800;
   }
+}
+#navigation {
+  background-color: #0000ff;
+  margin: 0;
+  display: flex;
+  justify-content: start;
+}
+#navigation a {
+  color: white;
+  transition: 0.2s ease-out;
+  text-decoration: none;
+  padding: 0px 2rem;
+  font-weight: bold;
+}
+#navigation a:hover {
+  color: red;
 }
 
 /*# sourceMappingURL=main.css.map */

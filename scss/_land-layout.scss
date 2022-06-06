@@ -5,14 +5,15 @@ body {
 #landing-page {
   background-color: #f7f7f7;
 	background-image:
-    	linear-gradient($primary-color 1px, transparent 1px),
-    	linear-gradient(95deg, $primary-color 1px, transparent 1px);
+    	linear-gradient($blue 1px, transparent 1px),
+    	linear-gradient(95deg, $blue 1px, transparent 1px);
   background-size: 100px 15px, 15px 100px, 20px 20px, 20px 20px;
   width: 100vw;
   height: 100vh;
 }
 
 #homecanvas {
+  display: none;
   position: relative;
   z-index: 10;
   width: 100vw;
@@ -23,9 +24,13 @@ body {
   width: 50vw;
   background-color: #f7f7f7;
   border-radius: 5px;
-  margin: 0px 50px;
+  margin: 0px 25vw;
   h1 {
     margin: 0;
     padding: 5rem;
   }
+}
+
+.globe {
+  position: absolute;
 }
