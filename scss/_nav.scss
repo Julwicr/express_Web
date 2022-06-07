@@ -4,13 +4,33 @@
   display: flex;
   justify-content: start;
   a {
-    color: white;
-    transition: 0.2s ease-out;
     text-decoration: none;
     padding: 0px 2rem;
     font-weight: bold;
+    font-size: 1.2rem;
+    color: white;
   }
+
   a:hover {
-    color: red;
+    animation: blink 0.5s linear 1;
   }
+}
+
+@keyframes blink {
+  5% {
+    color: white;
+  }
+
+  25% {
+    color: $blue;
+  }
+
+  75% {
+    color: $blue;
+  }
+
+  90% {
+    color: white;
+  }
+
 }
