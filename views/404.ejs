@@ -1,2 +1,36 @@
-<h2>Sonething when wrong</h2>
-<%- include('./partials/footer.ejs') %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404</title>
+</head>
+
+<body>
+
+  <style>
+    .alert404 {
+      margin: 20vh auto;
+    }
+
+    h2 {
+      text-align: center;
+      color: #0000ff;
+      transform: rotate(-180deg);
+      transition: 1s ease-out;
+    }
+
+    h2:hover {
+      transform: scaleX(-1);
+    }
+  </style>
+
+  <div class="alert404">
+    <h2>Sonething when wrong</h2>
+  </div>
+
+  <%- include('./partials/footer.ejs') %>
+
+</body>
+</html>

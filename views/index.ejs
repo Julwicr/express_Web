@@ -3,14 +3,20 @@
   <%- include('./partials/head.ejs') %>
 <body>
   <%- include('./partials/nav.ejs') %>
+
+  <div class="canvas-container">
+    <canvas id="homecanvas"></canvas>
+  </div>
+  
   <div id="landing-page">
     <div class="greetings">
-      <!-- <canvas id="homecanvas" width="1000" height="600"></canvas> -->
       <img class="globe" src="svg/globe_5.svg" alt="3d globe">
       <h1>Hello world,</h1>
       <h2>I am Julien</h2>
-      <p id="presentation">This is my first project after LeWagon.
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, repellat laborum eligendi architecto natus ipsa ullam blanditiis harum quisquam ut.
+      <p id="presentation">
+        const theguybehind = {
+
+        }
       </p>
 
     </div>
@@ -26,5 +32,6 @@
     </div>
   </div>
   <%- include('./partials/footer.ejs') %>
+  <script src="js/globe.js"></script>
 </body>
 </html>
