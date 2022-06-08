@@ -1,10 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include('./partials/head.ejs') %>
-<body>
-  <%- include('./partials/nav.ejs') %>
-  <h1>About</h1>
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque est debitis quaerat explicabo ipsam hic, commodi suscipit possimus error dolor in neque minima ut maiores expedita recusandae quia unde. Exercitationem.
-  <%- include('./partials/footer.ejs') %>
-</body>
+
+    <%- include('./partials/head.ejs') %>
+
+  <body>
+
+    <%- include('./partials/nav.ejs') %>
+
+    <div id="about-page">
+      <div class="bio">
+        I have created this website after finishing the LeWagon bootcamp. I have learn what a OOP language is with Ruby and then the MVC patern with Rails. Learning this technology was very interesting and made me start to understand how the web works, or at least made me start to understand how much I still don't know. This is why I started to create this website using only javaScript, I want to keep it as simple as I can understand, and work on it while learning.
+      </div>
+
+      <div class="config">
+        To create this website I have used : Node Express, Sass
+        I have chosen Express to create a router, and keep it very simple for now.
+      </div>
+    </div>
+
+    <%- include('./partials/footer.ejs') %>
+
+  </body>
 </html>
