@@ -8,10 +8,10 @@
   position: fixed;
   top: 2rem;
   right: 2rem;
-  transition: 1s ease-in-out;
+  // transition: 1s ease-in-out;
   animation: pulse 2s infinite;
   &:hover {
-    transform: scale(1.2);
+    animation: pulse 1.2s infinite;
   }
 }
 

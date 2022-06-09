@@ -1,6 +1,37 @@
 #contact {
   height: 100vh;
-  color: $red;
-  width: 500px;
+  width: 100vw;
   text-align: center;
+  background-color: $bg-color;
+
+  h2 {
+    height: 25%;
+    width: 25%;
+    margin: 25vh auto;
+    background-color: $blue;
+    color: $bg-color;
+    border-radius: 25rem;
+    padding: 5rem;
+    transition: 1s ease-in-out;
+  }
+
+  h2:hover {
+    animation: colorrgb 20s ease-in-out infinite;
+    box-shadow: rgba(0, 0, 0, 0.30) 1rem 1rem 2rem;
+  }
+}
+
+
+@keyframes colorrgb {
+	0% {
+		background-color: $blue;
+	}
+
+	35% {
+		background-color: $red;
+	}
+
+	65% {
+		background-color: $green;
+	}
 }

@@ -16,7 +16,6 @@ body {
 
 #landing-page {
   min-height: 100vh;
-  background-color: #f7f7f7;
 }
 
 #homecanvas {
@@ -26,11 +25,12 @@ body {
   width: 100%;
   height: 100%;
   background: radial-gradient(white, rgba(255, 255, 255, 0.76));
+  z-index: -1;
 }
 
 .greetings {
   width: 200px;
-  background-color: #f7f7f7;
+  background-color: rgba(247, 247, 247, 0.4);
   border-radius: 5px;
   margin: 0px 25vw;
   padding: 2rem;
@@ -71,11 +71,36 @@ body {
 
 #contact {
   height: 100vh;
-  color: #ff0000;
-  width: 500px;
+  width: 100vw;
   text-align: center;
+  background-color: #f7f7f7;
+}
+#contact h2 {
+  height: 25%;
+  width: 25%;
+  margin: 25vh auto;
+  background-color: #0000ff;
+  color: #f7f7f7;
+  border-radius: 25rem;
+  padding: 5rem;
+  transition: 1s ease-in-out;
+}
+#contact h2:hover {
+  animation: colorrgb 20s ease-in-out infinite;
+  box-shadow: rgba(0, 0, 0, 0.3) 1rem 1rem 2rem;
 }
 
+@keyframes colorrgb {
+  0% {
+    background-color: #0000ff;
+  }
+  35% {
+    background-color: #ff0000;
+  }
+  65% {
+    background-color: #00ff00;
+  }
+}
 .logo-badge {
   background-color: #0000ff;
   width: 5rem;
@@ -86,11 +111,10 @@ body {
   position: fixed;
   top: 2rem;
   right: 2rem;
-  transition: 1s ease-in-out;
   animation: pulse 2s infinite;
 }
 .logo-badge:hover {
-  transform: scale(1.2);
+  animation: pulse 1.2s infinite;
 }
 
 #logo {
