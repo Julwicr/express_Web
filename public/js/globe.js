@@ -1,9 +1,27 @@
+const canvas = document.getElementById('homecanvas');
+const ctx = canvas.getContext('2d');
+const frame = document.getElementsByClassName('canvas-container')
+
+// resizing canvas
+
+let height = frame[0].clientHeight;
+let width = frame[0].clientWidth;
+
+const resizeCanvas = () => {
+  let height = frame[0].clientHeight;
+  let width = frame[0].clientWidth;
+  canvas.height = height;
+  canvas.width = width;
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+
 document.addEventListener('mousemove', () => {
   // console.log(getRandomInt(2))
   if (getRandomInt(5) == 1) {
-    const rndten = getRandomInt(1000);
-    const rndtwo = getRandomInt(1000);
-    moveCircles(ctx, rndten, rndtwo, getRandomInt(5));
+    const rndx = getRandomInt(width);
+    const rndy = getRandomInt(height);
+    moveCircles(ctx, rndx, rndy, getRandomInt(5));
   } else {
 
   }
@@ -14,15 +32,6 @@ document.addEventListener('click', () => {
   frame[0].style.display = "none";
 })
 
-const canvas = document.getElementById('homecanvas');
-const ctx = canvas.getContext('2d');
-
-const frame = document.getElementsByClassName('canvas-container')
-
-const height = frame[0].clientHeight;
-const width = frame[0].clientWidth;
-canvas.height = height;
-canvas.width = width;
 
 
 // Set line width
