@@ -1,6 +1,6 @@
 const canvas = document.getElementById('homecanvas');
 const ctx = canvas.getContext('2d');
-const frame = document.getElementsByClassName('canvas-container')
+const frame = document.getElementsByClassName('canvas-container');
 
 // resizing canvas
 
