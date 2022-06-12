@@ -8,10 +8,20 @@
   <%- include('./partials/nav.ejs') %>
 
   <div id="contact">
-    <h2>CONTACT</h2>
+    <div class="container-form">
+      <h2 id="send-message">Send a message</h2>
+      <form id="form" class="form" action="https://formspree.io/f/xwkyzrnv" method="POST">
+        <label>Email:</label>
+        <input class="form-input" type="email" name="email" required="required"/>
+        <label>Message:</label>
+        <textarea class="form-input" type="text" name="message" required="required" rows="5" cols="33" maxlength="250"></textarea>
+        <button class="form-button">Submit</button>
+      </form>
+      <p class="form-status" id="form-status"></p>
+    </div>
   </div>
 
   <%- include('./partials/footer.ejs') %>
-
+  <script src="js/contact.js"></script>
 </body>
 </html>
