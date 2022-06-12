@@ -78,29 +78,34 @@ body {
   background-size: 100px 15px, 15px 100px, 20px 20px, 20px 20px;
 }
 
-.container-form {
+.contact-form {
   position: relative;
-  margin: 5vh auto;
-  width: 250px;
-  background-color: #f7f7f7;
-  color: #0000ff;
-  transition: 1s ease-in-out;
-  border-radius: 1rem 1rem 1rem 1rem;
+  top: 20%;
+  left: 35%;
+  width: 200px;
 }
-.container-form:hover {
-  box-shadow: rgba(0, 0, 0, 0.3) 1rem 1rem 2rem;
-}
-.container-form h2 {
+.contact-form h2 {
   text-align: center;
   background-color: #0000ff;
-  border-radius: 1rem 1rem 0rem 0rem;
+  border-radius: 1rem;
   color: #f7f7f7;
   margin: 0;
   font-size: medium;
   font-weight: 500;
   padding: 1rem 0rem;
+  transition: 0.5s ease-in-out;
 }
 
+.container-form {
+  overflow: hidden;
+  height: 300px;
+}
+
+.form {
+  transform: translateY(-200px);
+  transition: 2s ease-in-out;
+  height: 100px;
+}
 .form label {
   padding: 0rem 0.5rem;
 }
@@ -112,9 +117,10 @@ body {
   border: 1px solid #0000ff;
   padding: 0.5rem;
   border-radius: 0rem 0rem 1rem 1rem;
+  transition: 0.5s ease-in-out;
 }
 .form-button:hover {
-  animation: colorrgb 5s ease-in-out infinite;
+  transform: translateY(5px);
 }
 .form-status {
   padding: 1rem;

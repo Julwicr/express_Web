@@ -8,17 +8,19 @@
   <%- include('./partials/nav.ejs') %>
 
   <div id="contact">
-    <div class="container-form">
+    <div class="contact-form">
       <h2 id="send-message">Send a message</h2>
-      <form id="form" class="form" action="https://formspree.io/f/xwkyzrnv" method="POST">
-        <label>Email:</label>
-        <input class="form-input" type="email" name="email" required="required"/>
-        <label>Message:</label>
-        <textarea class="form-input" type="text" name="message" required="required" rows="5" cols="33" maxlength="250"></textarea>
-        <button class="form-button">Submit</button>
-      </form>
-      <p class="form-status" id="form-status"></p>
-    </div>
+      <div class="container-form">
+        <form id="form" class="form" action="https://formspree.io/f/xwkyzrnv" method="POST">
+          <label>Email:</label>
+          <input class="form-input" type="email" name="email" required="required"/>
+          <label>Message:</label>
+          <textarea class="form-input" type="text" name="message" required="required" rows="5" cols="33" maxlength="250"></textarea>
+          <button class="form-button">Submit</button>
+        </form>
+        <p class="form-status" id="form-status">Oops! There was a problem submitting your form</p>
+      </div>
+  </div>
   </div>
 
   <%- include('./partials/footer.ejs') %>
