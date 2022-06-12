@@ -44,6 +44,7 @@ jobs:
           SITE_URL: ${{ steps.project.outputs.site-url }}
         run: |
           npm run sass-prod
+          npm run start
 
       - name: Deploy to IONOS
         if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
