@@ -43,8 +43,7 @@ jobs:
           CI: true
           SITE_URL: ${{ steps.project.outputs.site-url }}
         run: |
-          npm run sass-prod
-          npm run start
+          npm ci
 
       - name: Deploy to IONOS
         if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
