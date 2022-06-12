@@ -43,7 +43,6 @@ jobs:
           CI: true
           SITE_URL: ${{ steps.project.outputs.site-url }}
         run: |
-          npm run dev
           npm run sass-prod
 
       - name: Deploy to IONOS
