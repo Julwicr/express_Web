@@ -39,13 +39,14 @@ sendMessage.addEventListener('click', (event) => {
     // form.hidden = false;
     sendMessage.style.borderRadius = "0.5rem 0.5rem 0rem 0rem";
     form.style.transform = 'translateY(0px)';
+    form.style.opacity = '1';
     toggle++;
     setFilter();
   } else {
     // form.hidden = true;
     sendMessage.style.borderRadius = "0.5rem";
     form.style.transform = 'translateY(-300px)';
-    console.log(toggle);
+    form.style.opacity = '0';
     toggle--;
     setFilter();
   }
