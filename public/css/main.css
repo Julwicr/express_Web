@@ -169,7 +169,7 @@ body {
   display: flex;
   justify-content: center;
   position: fixed;
-  top: 2rem;
+  top: 2.5rem;
   right: 2rem;
   animation: pulse 2s infinite;
 }
@@ -241,13 +241,41 @@ body {
   color: #0000ff;
   position: absolute;
   width: 100%;
-  height: 1.5rem;
-  background-color: #f7f7f7;
+  height: 2rem;
+  margin: 0.5rem;
 }
-#footer div {
-  padding-top: 0.5rem;
-  padding-bottom: 0.2rem;
-  text-align: center;
+
+.footer-txt {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 0px 20px;
+}
+.footer-txt p {
+  margin: 0;
+  font-size: 0.8rem;
+}
+.footer-txt svg {
+  filter: invert(8%) sepia(100%) saturate(5748%) hue-rotate(244deg) brightness(114%) contrast(140%);
+  transition: 0.4s ease-in-out;
+}
+.footer-txt svg:hover {
+  animation: shake 0.5s linear;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+  30%, 50%, 70% {
+    transform: translate3d(-2px, 0, 0);
+  }
+  40%, 60% {
+    transform: translate3d(2px, 0, 0);
+  }
 }
 
 /*# sourceMappingURL=main.css.map */
