@@ -32,18 +32,18 @@ const form = document.getElementById("form");
 // Toggle form
 // form.hidden = true;
 sendMessage = document.getElementById('send-message');
-sendMessage.style.borderRadius = "1rem";
+sendMessage.style.borderRadius = "0.5rem";
 let toggle = 0;
 sendMessage.addEventListener('click', (event) => {
   if (toggle === 0) {
     // form.hidden = false;
-    sendMessage.style.borderRadius = "1rem 1rem 0rem 0rem";
+    sendMessage.style.borderRadius = "0.5rem 0.5rem 0rem 0rem";
     form.style.transform = 'translateY(0px)';
     toggle++;
     setFilter();
   } else {
     // form.hidden = true;
-    sendMessage.style.borderRadius = "1rem";
+    sendMessage.style.borderRadius = "0.5rem";
     form.style.transform = 'translateY(-300px)';
     console.log(toggle);
     toggle--;

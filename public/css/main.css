@@ -25,7 +25,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(white, rgba(255, 255, 255, 0.76));
+  background-color: #f7f7f7;
   z-index: -1;
 }
 
@@ -83,12 +83,12 @@ body {
   top: 25%;
   left: 50%;
   transform: translateX(-50%);
-  width: 250px;
+  width: 400px;
 }
 .contact-form h2 {
   text-align: center;
   background-color: #0000ff;
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   color: #f7f7f7;
   margin: 0;
   font-size: medium;
@@ -99,7 +99,6 @@ body {
 
 .container-form {
   overflow: hidden;
-  height: 300px;
 }
 
 .form {
@@ -117,7 +116,7 @@ body {
   font-weight: bolder;
   border: 1px solid #0000ff;
   padding: 0.5rem;
-  border-radius: 0rem 0rem 1rem 1rem;
+  border-radius: 0rem 0rem 0.5rem 0.5rem;
   transition: 0.5s ease-in-out;
 }
 .form-button:hover {
@@ -144,7 +143,7 @@ body {
   border: none;
   max-width: 85%;
   border: none;
-  margin: 1rem;
+  margin: 0.5rem;
 }
 .form-input:focus {
   border: none;
@@ -161,6 +160,11 @@ body {
     background-color: #00ff00;
   }
 }
+#works {
+  width: 100vw;
+  height: 100vh;
+}
+
 .logo-badge {
   background-color: #0000ff;
   width: 5rem;
@@ -242,24 +246,22 @@ body {
   position: absolute;
   width: 100%;
   height: 2rem;
-  margin: 0.5rem;
-}
-
-.footer-txt {
-  height: 100%;
+  background-color: #f7f7f7;
   display: flex;
   justify-content: space-between;
-  margin: 0px 20px;
 }
-.footer-txt p {
+#footer p {
   margin: 0;
   font-size: 0.8rem;
+  align-self: center;
+  padding-left: 1rem;
 }
-.footer-txt svg {
+#footer svg {
   filter: invert(8%) sepia(100%) saturate(5748%) hue-rotate(244deg) brightness(114%) contrast(140%);
+  padding-right: 1rem;
   transition: 0.4s ease-in-out;
 }
-.footer-txt svg:hover {
+#footer svg:hover {
   animation: shake 0.5s linear;
 }
 

@@ -13,11 +13,11 @@
   top: 25%;
   left: 50%;
   transform: translateX(-50%);
-  width: 250px;
+  width: 400px;
   h2 {
     text-align: center;
     background-color: $blue;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     color: $bg-color;
     margin: 0;
     font-size: medium;
@@ -29,7 +29,6 @@
 
 .container-form {
   overflow: hidden;
-  height: 300px;
 }
 
 .form {
@@ -46,7 +45,7 @@
     font-weight: bolder;
     border: 1px solid $blue;
     padding: 0.5rem;
-    border-radius: 0rem 0rem 1rem 1rem;
+    border-radius: 0rem 0rem 0.5rem 0.5rem;
     transition: 0.5s ease-in-out;
 
     &:hover {
@@ -76,7 +75,7 @@
   border: none;
   max-width: 85%;
   border: none;
-  margin: 1rem;
+  margin: 0.5rem;
   &:focus {
     border: none;
   }

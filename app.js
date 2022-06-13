@@ -15,6 +15,10 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
+app.get('/works', (req, res) => {
+  res.render('works');
+});
+
 app.get('/about', (req, res) => {
   res.render('about');
 });

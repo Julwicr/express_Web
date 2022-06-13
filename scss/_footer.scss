@@ -3,28 +3,30 @@
   position: absolute;
   width: 100%;
   height: 2rem;
-  margin: 0.5rem;
-}
-
-.footer-txt {
-  height: 100%;
+  background-color: $bg-color;
   display: flex;
   justify-content: space-between;
-  margin: 0px 20px;
   p {
     margin: 0;
     font-size: 0.8rem;
+    align-self: center;
+    padding-left: 1rem;
   }
 
 
   svg {
     filter: invert(8%) sepia(100%) saturate(5748%) hue-rotate(244deg) brightness(114%) contrast(140%);
+    padding-right: 1rem;
     transition: 0.4s ease-in-out;
     &:hover {
       animation: shake 0.5s linear;
     }
   }
 }
+
+
+
+
 
 
 @keyframes shake {
