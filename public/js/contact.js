@@ -40,11 +40,23 @@ sendMessage.addEventListener('click', (event) => {
     sendMessage.style.borderRadius = "1rem 1rem 0rem 0rem";
     form.style.transform = 'translateY(0px)';
     toggle++;
+    setFilter();
   } else {
     // form.hidden = true;
     sendMessage.style.borderRadius = "1rem";
     form.style.transform = 'translateY(-300px)';
     console.log(toggle);
     toggle--;
+    setFilter();
   }
 })
+
+
+// change color
+const setFilter = () => document.body.style.filter = `hue-rotate(${getRandomInt(360)}deg)`;
+
+
+// rnd num
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
