@@ -84,6 +84,7 @@ body {
   left: 50%;
   transform: translateX(-50%);
   width: 400px;
+  border-radius: 0.5rem;
 }
 .contact-form h2 {
   text-align: center;
@@ -105,9 +106,14 @@ body {
   transform: translateY(-300px);
   transition: 0.5s ease-in-out;
   background-color: #f7f7f7;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
 }
 .form label {
-  padding: 0.5rem 0.5rem;
+  padding: 0.5rem 2rem;
+  align-self: start;
 }
 .form-button {
   width: 100%;
