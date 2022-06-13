@@ -80,9 +80,10 @@ body {
 
 .contact-form {
   position: relative;
-  top: 20%;
-  left: 35%;
-  width: 200px;
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 250px;
 }
 .contact-form h2 {
   text-align: center;
@@ -102,12 +103,12 @@ body {
 }
 
 .form {
-  transform: translateY(-200px);
-  transition: 2s ease-in-out;
-  height: 100px;
+  transform: translateY(-300px);
+  transition: 0.5s ease-in-out;
+  background-color: #f7f7f7;
 }
 .form label {
-  padding: 0rem 0.5rem;
+  padding: 0.5rem 0.5rem;
 }
 .form-button {
   width: 100%;
@@ -120,7 +121,7 @@ body {
   transition: 0.5s ease-in-out;
 }
 .form-button:hover {
-  transform: translateY(5px);
+  animation: 0.5s linear colorrgb;
 }
 .form-status {
   padding: 1rem;
@@ -129,13 +130,21 @@ body {
   color: #f7f7f7;
   display: inline-block;
   position: absolute;
+  max-width: 10rem;
+  position: absolute;
+  top: 50px;
+  right: 25px;
 }
 
 .form-input {
   resize: none;
   outline: 1px ridge rgba(0, 0, 255, 0.4);
+  color: #0000ff;
   width: 98%;
   border: none;
+  max-width: 85%;
+  border: none;
+  margin: 1rem;
 }
 .form-input:focus {
   border: none;

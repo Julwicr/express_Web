@@ -43,7 +43,7 @@ sendMessage.addEventListener('click', (event) => {
   } else {
     // form.hidden = true;
     sendMessage.style.borderRadius = "1rem";
-    form.style.transform = 'translateY(-200px)';
+    form.style.transform = 'translateY(-300px)';
     console.log(toggle);
     toggle--;
   }
