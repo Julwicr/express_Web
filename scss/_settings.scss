@@ -5,10 +5,6 @@ $red: #ff0000;
 $green: #00ff00;
 $bg-color: #f7f7f7;
 
-body {
-  color: $blue;
-  margin: 0;
-}
 
 // Set fonts
 
@@ -21,6 +17,8 @@ $source : 'Source Code Pro', monospace;
 $fira: 'Fira Code', monospace;
 
 body {
+  color: $blue;
+  margin: 0;
   font-family: $fira;
   font-weight: 500;
 }

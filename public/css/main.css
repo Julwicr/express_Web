@@ -4,15 +4,8 @@
 body {
   color: #0000ff;
   margin: 0;
-}
-
-body {
   font-family: "Fira Code", monospace;
   font-weight: 500;
-}
-
-body {
-  margin: 0;
 }
 
 #landing-page {
@@ -70,6 +63,21 @@ body {
   margin: 2rem;
 }
 
+#logo3d {
+  filter: invert(8%) sepia(100%) saturate(5748%) hue-rotate(244deg) brightness(114%) contrast(140%);
+  width: 25rem;
+  position: absolute;
+  right: 5%;
+  bottom: 1%;
+  stroke-dasharray: 750;
+  animation: logo3danim 5s ease-in 0.5s;
+}
+
+@keyframes logo3danim {
+  0% {
+    stroke-dashoffset: 800;
+  }
+}
 #contact {
   height: 100vh;
   width: 100vw;
