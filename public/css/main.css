@@ -6,6 +6,7 @@ body {
   margin: 0;
   font-family: "Fira Code", monospace;
   font-weight: 500;
+  background-color: #f7f7f7;
 }
 
 #landing-page {
@@ -177,6 +178,22 @@ body {
 #works {
   width: 100vw;
   height: 100vh;
+}
+
+#github-repos {
+  display: flex;
+  flex-flow: column;
+}
+
+.github {
+  margin: 50px;
+}
+.github h2 {
+  font-size: 1rem;
+}
+.github-repos-links {
+  color: #0000ff;
+  text-decoration: none;
 }
 
 .logo-badge {

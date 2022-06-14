@@ -2,3 +2,21 @@
   width: 100vw;
   height: 100vh;
 }
+
+#github-repos {
+  display: flex;
+  flex-flow: column;
+}
+
+.github {
+  margin: 50px;
+
+  h2 {
+    font-size: 1rem;
+  }
+
+  &-repos-links {
+    color: $blue;
+    text-decoration: none;
+  }
+}
