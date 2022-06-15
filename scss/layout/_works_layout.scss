@@ -6,17 +6,46 @@
 #github-repos {
   display: flex;
   flex-flow: column;
+
 }
 
 .github {
+  padding: 10px;
   margin: 50px;
+  background-color: $bg-color;
+  color: $blue;
+  width: 230px;
+  font-size: 0.8rem;
+  border: 2px solid $blue;
+
+  a {
+    position: relative;
+    border-bottom: 1px dotted black;
+    color: $blue;
+    text-decoration: none;
+  }
+
+  a:before {
+    content: attr(data-hover);
+    visibility: hidden;
+    opacity: 0;
+    width: 140px;
+    background-color: $blue;
+    color: $bg-color;
+    text-align: center;
+    padding: 5px 2px;
+    transition: opacity 1s ease-in-out;
+    position: absolute;
+    z-index: 1;
+    left: 105%;
+  }
+
+  a:hover:before {
+    opacity: 1;
+    visibility: visible;
+  }
 
   h2 {
     font-size: 1rem;
-  }
-
-  &-repos-links {
-    color: $blue;
-    text-decoration: none;
   }
 }

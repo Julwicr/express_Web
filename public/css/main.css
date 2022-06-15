@@ -186,14 +186,40 @@ body {
 }
 
 .github {
+  padding: 10px;
   margin: 50px;
+  background-color: #f7f7f7;
+  color: #0000ff;
+  width: 230px;
+  font-size: 0.8rem;
+  border: 2px solid #0000ff;
+}
+.github a {
+  position: relative;
+  border-bottom: 1px dotted black;
+  color: #0000ff;
+  text-decoration: none;
+}
+.github a:before {
+  content: attr(data-hover);
+  visibility: hidden;
+  opacity: 0;
+  width: 140px;
+  background-color: #0000ff;
+  color: #f7f7f7;
+  text-align: center;
+  padding: 5px 2px;
+  transition: opacity 1s ease-in-out;
+  position: absolute;
+  z-index: 1;
+  left: 105%;
+}
+.github a:hover:before {
+  opacity: 1;
+  visibility: visible;
 }
 .github h2 {
   font-size: 1rem;
-}
-.github-repos-links {
-  color: #0000ff;
-  text-decoration: none;
 }
 
 .logo-badge {

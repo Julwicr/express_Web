@@ -9,9 +9,10 @@ const getRepos = async() => {
     link.className = 'github-repos-link';
     link.target = 'blank';
     link.href = repo.html_url;
-    link.textContent = repo.full_name;
+    link.textContent = repo.full_name.replace('Julwicr', '');
+    link.dataset.hover = repo.description;
     repoContainer.appendChild(link);
+    console.log(repo)
   });
 }
 getRepos();
-// console.log(repos);
