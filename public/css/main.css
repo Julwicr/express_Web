@@ -224,14 +224,14 @@ body {
 
 .logo-badge {
   background-color: #0000ff;
-  width: 5rem;
-  height: 5rem;
+  width: 4rem;
+  height: 4rem;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   position: fixed;
-  top: 2.5rem;
-  right: 2rem;
+  top: 4rem;
+  right: 4rem;
   animation: pulse 2s infinite;
 }
 .logo-badge:hover {

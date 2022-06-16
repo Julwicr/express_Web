@@ -9,22 +9,14 @@ const resizeCanvas = () => {
   const width = window.innerWidth;
   canvas.height = height;
   canvas.width = width;
-  // init();
 }
 window.addEventListener('resize', resizeCanvas);
 
 // toggle canvas
 const logo = document.getElementById('logo')
 logo.addEventListener('click', () => {
-  // console.log(Boolean(canvas.hidden));
   Boolean(canvas.hidden) ? canvas.hidden = false : canvas.hidden = true;
 });
-
-logo.addEventListener('mouseover', () => {
-  console.log(logo)
-})
-
-let particlesArray;
 
 // get mouse position
 let mouse = {
@@ -38,7 +30,6 @@ window.addEventListener('mousemove', (event) => {
   mouse.y = event.y;
 });
 
-// create particles
 class Particle {
   constructor(x, y, directionX, directionY, size, color) {
     this.x = x;
@@ -83,8 +74,8 @@ class Particle {
       }
     }
     // Move particle
-    this.x += this.directionX;
-    this.y += this.directionY;
+    this.x += this.directionX / 2;
+    this.y += this.directionY / 2;
     // draw particle
     this.draw();
   }
@@ -94,9 +85,9 @@ class Particle {
 const init = () => {
   particlesArray = [];
   let numberOfParticles = (canvas.height * canvas.width) / 40000;
-  // Set number of particles in the loop
-  for (let i = 0; i < numberOfParticles*3; i++) {
-    let size = (Math.random() * 5) + 1;
+  // Set number of particles
+  for (let i = 0; i < numberOfParticles*2; i++) {
+    let size = (Math.random() * 2) + 1;
     let x = (Math.random() * ((innerWidth - size * 2) - (size * 2) - (size * 2)) + size * 2);
     let y = (Math.random() * ((innerHeight - size * 2) - (size * 2) - (size * 2)) + size * 2)
     let directionX = (Math.random() * 5) - 2.5;
@@ -111,7 +102,6 @@ const init = () => {
 const animate = () => {
   requestAnimationFrame(animate);
   ctx.clearRect(0,0,innerWidth, innerHeight);
-
   for (let i = 0; i < particlesArray.length; i++) {
     particlesArray[i].update();
   }
