@@ -1,14 +1,13 @@
 .logo-badge {
   background-color: $blue;
-  width: 5rem;
-  height: 5rem;
+  width: 4rem;
+  height: 4rem;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   position: fixed;
-  top: 2.5rem;
-  right: 2rem;
-  // transition: 1s ease-in-out;
+  top: 4rem;
+  right: 4rem;
   animation: pulse 2s infinite;
   &:hover {
     animation: pulse 1.2s infinite;
