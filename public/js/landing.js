@@ -110,13 +110,15 @@ const animate = () => {
 
 // draw line between particles
 const connect = () => {
+  let opacity;
   for (let a = 0; a < particlesArray.length; a++) {
     for (let b = a; b < particlesArray.length; b++) {
       let distance = ((particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x))
       + ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
       // setting lines length
       if (distance < (canvas.width/9) * (canvas.height/9)) {
-        ctx.strokeStyle='#0000ff';
+        opacity = 1 - (distance/15000);
+        ctx.strokeStyle=`rgba(0,0,255, ${opacity})`;
         ctx.beginPath();
         ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
         ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
