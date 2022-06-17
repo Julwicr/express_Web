@@ -134,7 +134,7 @@ init();
 animate();
 
 
-// add particles on logo click
+// modify animation on logo click
 const logo = document.getElementById('logo')
 
 const addParticles = () => {
@@ -150,6 +150,15 @@ const addParticles = () => {
   }
 }
 
+const changeParticles = () => {
+  for (let i = 0; i < particlesArray.length; i++) {
+    const particle = particlesArray[i];
+    const rndSize = (Math.random() * 3) + 1;
+    particle.size = rndSize;
+  }
+}
+
 logo.addEventListener('click', () => {
   addParticles();
+  changeParticles();
 });
