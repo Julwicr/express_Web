@@ -128,18 +128,20 @@ window.addEventListener('mouseout', () => {
   mouse.x = null;
   mouse.y = null;
 })
+
+// start canvas animation
 init();
 animate();
 
 
-// add particles on logo click
+// modify animation on logo click
 const logo = document.getElementById('logo')
 
 const addParticles = () => {
   for (let i = 0; i < (Math.random() * 15); i++) {
     let size = (Math.random() * 2) + 1;
     let x = (Math.random() * ((innerWidth - size * 2) - (size * 2) - (size * 2)) + size * 2);
-    let y = (Math.random() * ((innerHeight - size * 2) - (size * 2) - (size * 2)) + size * 2)
+    let y = (Math.random() * ((innerHeight - size * 2) - (size * 2) - (size * 2)) + size * 2);
     let directionX = (Math.random() * 5) - 2.5;
     let directionY = (Math.random() * 5) - 2.5;
     let color = '#0000ff'
@@ -148,6 +150,15 @@ const addParticles = () => {
   }
 }
 
+const changeParticles = () => {
+  for (let i = 0; i < particlesArray.length; i++) {
+    const particle = particlesArray[i];
+    const rndSize = (Math.random() * 3) + 1;
+    particle.size = rndSize;
+  }
+}
+
 logo.addEventListener('click', () => {
   addParticles();
+  changeParticles();
 });
