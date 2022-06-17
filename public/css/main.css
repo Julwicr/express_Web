@@ -24,10 +24,10 @@ body {
 }
 
 .greetings {
-  width: 200px;
+  width: 300px;
   background-color: rgba(247, 247, 247, 0.4);
   border-radius: 5px;
-  margin: 0px 25vw;
+  margin: 35px 50px;
   padding: 2rem;
 }
 .greetings h1 {
@@ -37,10 +37,10 @@ body {
 
 .globe {
   position: absolute;
-  left: 5%;
-  bottom: 5%;
-  width: 10rem;
-  background-color: rgba(255, 255, 255, 0.178);
+  width: 20rem;
+  left: 20%;
+  bottom: 15%;
+  filter: invert(8%) sepia(100%) saturate(5748%) hue-rotate(244deg) brightness(114%) contrast(140%);
   border-radius: 50%;
 }
 
