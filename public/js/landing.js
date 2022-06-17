@@ -12,17 +12,11 @@ const resizeCanvas = () => {
 }
 window.addEventListener('resize', resizeCanvas);
 
-// toggle canvas
-const logo = document.getElementById('logo')
-logo.addEventListener('click', () => {
-  Boolean(canvas.hidden) ? canvas.hidden = false : canvas.hidden = true;
-});
-
 // get mouse position
 let mouse = {
   x: null,
   y: null,
-  radius: (canvas.height/80) * (canvas.width/80)
+  radius: (canvas.height/100) * (canvas.width/100)
 }
 
 window.addEventListener('mousemove', (event) => {
@@ -84,9 +78,9 @@ class Particle {
 // create particle array
 const init = () => {
   particlesArray = [];
-  let numberOfParticles = (canvas.height * canvas.width) / 40000;
+  let numberOfParticles = (canvas.height * canvas.width) / 50000;
   // Set number of particles
-  for (let i = 0; i < numberOfParticles*2; i++) {
+  for (let i = 0; i < numberOfParticles/2; i++) {
     let size = (Math.random() * 2) + 1;
     let x = (Math.random() * ((innerWidth - size * 2) - (size * 2) - (size * 2)) + size * 2);
     let y = (Math.random() * ((innerHeight - size * 2) - (size * 2) - (size * 2)) + size * 2)
@@ -136,3 +130,24 @@ window.addEventListener('mouseout', () => {
 })
 init();
 animate();
+
+
+// add particles on logo click
+const logo = document.getElementById('logo')
+
+const addParticles = () => {
+  for (let i = 0; i < (Math.random() * 15); i++) {
+    let size = (Math.random() * 2) + 1;
+    let x = (Math.random() * ((innerWidth - size * 2) - (size * 2) - (size * 2)) + size * 2);
+    let y = (Math.random() * ((innerHeight - size * 2) - (size * 2) - (size * 2)) + size * 2)
+    let directionX = (Math.random() * 5) - 2.5;
+    let directionY = (Math.random() * 5) - 2.5;
+    let color = '#0000ff'
+
+    particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
+  }
+}
+
+logo.addEventListener('click', () => {
+  addParticles();
+});
