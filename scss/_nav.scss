@@ -34,7 +34,7 @@
 
 }
 
-@media (min-width:320px)  {
+@media only screen and (max-width: 550px) {
   .wrapper-navlinks {
     height: 5rem;
     display: flex;

@@ -43,7 +43,7 @@
 	}
 }
 
-@media (min-width:320px) {
+@media only screen and (max-width: 550px) {
   .logo-badge {
     top: 100px;
     left: 25px;
