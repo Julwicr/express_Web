@@ -101,3 +101,14 @@
 		background-color: $green;
 	}
 }
+
+@media (max-width: 550px) {
+  .contact-form {
+    width: 250px;
+  }
+
+  .form-status {
+    top: 100px;
+    right: 30px;
+  }
+}
