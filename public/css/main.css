@@ -183,6 +183,15 @@ body {
     background-color: #00ff00;
   }
 }
+@media (min-width: 320px) {
+  .contact-form {
+    width: 250px;
+  }
+  .form-status {
+    top: 100px;
+    right: 30px;
+  }
+}
 #works {
   width: 100vw;
   height: 100vh;
@@ -272,14 +281,16 @@ body {
     box-shadow: 0 0 0 0 rgba(0, 0, 255, 0.6);
   }
 }
+@media (min-width: 320px) {
+  .logo-badge {
+    top: 100px;
+    left: 25px;
+  }
+}
 #navigation {
-  position: absolute;
-  top: 0;
   width: 100%;
   background-color: #0000ff;
   margin: 0;
-  display: flex;
-  justify-content: start;
 }
 #navigation a {
   text-decoration: none;
@@ -304,6 +315,15 @@ body {
   }
   90% {
     color: white;
+  }
+}
+@media (min-width: 320px) {
+  .wrapper-navlinks {
+    height: 5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
   }
 }
 #footer {

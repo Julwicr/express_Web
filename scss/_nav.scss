@@ -1,11 +1,7 @@
 #navigation {
-  position: absolute;
-  top: 0;
-  width: 100%;
+ width: 100%;
   background-color: $blue;
   margin: 0;
-  display: flex;
-  justify-content: start;
   a {
     text-decoration: none;
     padding: 0px 2rem;
@@ -36,4 +32,14 @@
     color: white;
   }
 
+}
+
+@media (min-width:320px)  {
+  .wrapper-navlinks {
+    height: 5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+  }
 }
