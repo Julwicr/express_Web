@@ -99,7 +99,7 @@
 	}
 }
 
-@media (max-width: 550px) {
+@media only screen and (max-width: 550px) {
   .contact-form {
     width: 250px;
   }

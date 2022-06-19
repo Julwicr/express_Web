@@ -1,8 +1,12 @@
 const form = document.getElementById("form");
+const notif = document.getElementById("form-status");
+console.log(notif);
+notif.style.opacity = '0';
+
     // message sent notification
     async function handleSubmit(event) {
+      notif.style.opacity = '1';
       event.preventDefault();
-      const status = document.getElementById("form-status");
       const data = new FormData(event.target);
       fetch(event.target.action, {
         method: form.method,
@@ -12,37 +16,34 @@ const form = document.getElementById("form");
         }
       }).then(response => {
         if (response.ok) {
-          status.innerHTML = "Message sent ✓";
+          notif.innerHTML = "Message sent ✓";
           form.reset()
         } else {
           response.json().then(data => {
             if (Object.hasOwn(data, 'errors')) {
-              status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
+              notif.innerHTML = data["errors"].map(error => error["message"]).join(", ")
             } else {
-              status.innerHTML = "Oops! There was a problem submitting your form"
+              notif.innerHTML = "Oops! There was a problem, please try again."
             }
           })
         }
       }).catch(error => {
-        status.innerHTML = "Oops! There was a problem submitting your form"
+        notif.innerHTML = "Oops! There was a problem, please try again."
       });
     }
     form.addEventListener("submit", handleSubmit)
 
 // Toggle form
-// form.hidden = true;
 sendMessage = document.getElementById('send-message');
 let toggle = 0;
 sendMessage.addEventListener('click', (event) => {
   if (toggle === 0) {
-    // form.hidden = false;
     form.style.transform = 'translateY(0px)';
     form.style.opacity = '1';
     toggle++;
     setFilter(120);
     setContactBg(x, y);
   } else {
-    // form.hidden = true;
     form.style.transform = 'translateY(-300px)';
     form.style.opacity = '0';
     toggle--;
