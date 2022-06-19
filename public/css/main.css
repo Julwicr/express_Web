@@ -91,8 +91,6 @@ body {
   height: 100vh;
   width: 100vw;
   background-color: #f7f7f7;
-  background-image: linear-gradient(#0000ff 1px, transparent 1px), linear-gradient(95deg, #0000ff 1px, transparent 1px);
-  background-size: 100px 15px, 15px 100px, 20px 20px, 20px 20px;
 }
 
 .contact-form {
@@ -106,7 +104,6 @@ body {
 .contact-form h2 {
   text-align: center;
   background-color: #0000ff;
-  border-radius: 0.5rem;
   color: #f7f7f7;
   margin: 0;
   font-size: medium;
@@ -123,7 +120,6 @@ body {
   transform: translateY(-300px);
   transition: 0.5s ease-in-out;
   background-color: #f7f7f7;
-  border-radius: 0.5rem;
   display: flex;
   flex-flow: column;
   align-items: center;
@@ -139,7 +135,6 @@ body {
   font-weight: bolder;
   border: 1px solid #0000ff;
   padding: 0.5rem;
-  border-radius: 0rem 0rem 0.5rem 0.5rem;
   transition: 0.5s ease-in-out;
 }
 .form-button:hover {

@@ -32,32 +32,44 @@ const form = document.getElementById("form");
 // Toggle form
 // form.hidden = true;
 sendMessage = document.getElementById('send-message');
-sendMessage.style.borderRadius = "0.5rem";
 let toggle = 0;
 sendMessage.addEventListener('click', (event) => {
   if (toggle === 0) {
     // form.hidden = false;
-    sendMessage.style.borderRadius = "0.5rem 0.5rem 0rem 0rem";
     form.style.transform = 'translateY(0px)';
     form.style.opacity = '1';
     toggle++;
-    setFilter();
+    setFilter(120);
+    setContactBg(x, y);
   } else {
     // form.hidden = true;
-    sendMessage.style.borderRadius = "0.5rem";
     form.style.transform = 'translateY(-300px)';
     form.style.opacity = '0';
     toggle--;
-    setFilter();
+    setFilter(0);
   }
 })
 
-
 // change color
-const setFilter = () => document.body.style.filter = `hue-rotate(${getRandomInt(360)}deg)`;
+const setFilter = (x) => document.body.style.filter = `hue-rotate(${x}deg)`;
 
+// background contact
+const contactBg = document.getElementById('contact');
+const formInput = document.getElementsByClassName('form-input');
 
-// rnd num
-function getRandomInt(max) {
-  return Math.floor(Math.random() * max);
+const setContactBg = (x, y) => {
+  contactBg.style.backgroundImage = 'linear-gradient(#0000ff 1px, transparent 1px), linear-gradient(95deg, #0000ff 1px, transparent 1px)';
+  contactBg.style.backgroundSize = `100px 15px, ${x}px ${y}px, 20px 20px, 20px 20px`;
+};
+
+let x = 3;
+let y = 15;
+
+for (let i = 0; i < formInput.length; i++) {
+  const input = formInput[i];
+  input.addEventListener('keyup', (e) => {
+    setContactBg(x, y);
+    x > 15 ? x = 3 : x++;
+    y > 100 ? y = 15 : y += 5;
+  });
 }
