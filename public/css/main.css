@@ -244,25 +244,48 @@ body {
 }
 
 #startlongest {
-  width: 50px;
-  height: 50px;
+  width: 95px;
+  height: 95px;
   background-color: #0000ff;
+  color: #f7f7f7;
+  position: absolute;
+  top: 370px;
+  left: 150px;
+  border-radius: 50%;
+  border: none;
+  transition: 0.2s ease-in;
+}
+#startlongest:hover {
+  transform: translateY(-2px);
+  color: #0000ff;
+  background-color: #f7f7f7;
+  box-shadow: #0000ff 0px 0px 6px;
+}
+#startlongest:active {
+  box-shadow: rgba(0, 0, 255, 0.5) 0 3px 7px inset;
 }
 
 .grid-letters {
   margin: 0 auto;
-  width: 75vw;
+  opacity: 0;
+  max-width: 650px;
+  height: 200px;
   padding: 40px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
+  transition: 1s ease-in-out;
   background-color: #f7f7f7;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
 }
 
 .letter {
   font-weight: bolder;
+  margin: 0px 35px;
   font-size: 25px;
   padding: 15px;
+  width: 15px;
+  height: 30px;
   color: #0000ff;
   border: 2px solid white;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
@@ -295,10 +318,19 @@ body {
   outline: 2px solid #0000ff;
 }
 
+.longest-word-rules {
+  padding: 1rem;
+  width: 250px;
+  position: absolute;
+  top: 50px;
+  left: 15px;
+  font-size: 0.9rem;
+}
+
 .longest-word-result {
-  color: white;
+  color: #0000ff;
   font-weight: 400;
-  background-color: #0000ff;
+  background-color: #f7f7f7;
   padding: 20px;
   width: 450px;
   margin: 20px auto;

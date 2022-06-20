@@ -1,11 +1,16 @@
 // DOM elements
 const grid = document.getElementById('grid');
-const startBtn = document.getElementById('startlongest')
+const startBtn = document.getElementById('startlongest');
 
+let startAnswer;
+let endAnswer;
 
 
 // GET new grid longest_words
 const newGrid = () => {
+  startAnswer = new Date;
+  console.log(startAnswer);
+  grid.style.opacity = 1;
   grid.innerHTML = '';
   fetch('https://julwicrapi.herokuapp.com/api/v1/longest_words/new')
   .then(response => response.json())
@@ -17,7 +22,6 @@ const appendLetters = (letters) => {
   letters.forEach(letter => {
     const element = document.createElement('span');
     element.classList.add('letter');
-    console.log(letter)
     element.textContent = letter;
     grid.appendChild(element);
   });
