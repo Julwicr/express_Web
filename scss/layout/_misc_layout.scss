@@ -1,4 +1,81 @@
 #misc {
-  height: 100vh;
   width: 100vw;
+  h1 {
+    padding: 30px;
+    text-align: center;
+    color: $blue;
+  }
+}
+
+#startlongest {
+  width: 50px;
+  height: 50px;
+  background-color: $blue;
+}
+
+.grid-letters {
+  margin: 0 auto;
+  width: 75vw;
+  padding: 40px;
+  display: flex;
+  justify-content: space-around;
+  background-color: $bg-color;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+}
+
+.letter {
+ font-weight: bolder;
+ font-size: 25px;
+ padding: 15px;
+ color: $blue;
+ border: 2px solid white;
+ box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.longest-word-form {
+ width:max-content;
+ margin: 50px auto;
+ box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+ &-submit {
+  padding: 10px 20px;
+  background-color: $blue;
+  color: white;
+  border: none;
+  transition: 0.2s ease-in-out;
+ }
+
+ &-submit:hover {
+ background-color: white;
+ color: $blue;
+ }
+
+ &-input {
+  color: $blue;
+  padding: 10px 15px;
+  border: none;
+  font-size: 15px;
+ }
+
+ &-input:focus {
+ border: none;
+ outline: 2px solid $blue;
+ }
+}
+
+.longest-word-result {
+  color: white;
+  font-weight: 400;
+  background-color: $blue;
+  padding: 20px;
+  width: 450px;
+  margin: 20px auto;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+
+  div {
+    padding: 15px;
+  }
 }

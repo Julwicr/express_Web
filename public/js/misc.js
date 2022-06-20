@@ -1,7 +1,29 @@
+// DOM elements
+const grid = document.getElementById('grid');
+const startBtn = document.getElementById('startlongest')
+
+
+
 // GET new grid longest_words
-// const newGrid = fetch('https://julwicrapi.herokuapp.com/api/v1/longest_words/new')
-// .then(response => response.json())
-// .then(data => console.log(data));
+const newGrid = () => {
+  grid.innerHTML = '';
+  fetch('https://julwicrapi.herokuapp.com/api/v1/longest_words/new')
+  .then(response => response.json())
+  .then(data => appendLetters(data));
+}
+
+// inject grid letters
+const appendLetters = (letters) => {
+  letters.forEach(letter => {
+    const element = document.createElement('span');
+    element.classList.add('letter');
+    console.log(letter)
+    element.textContent = letter;
+    grid.appendChild(element);
+  });
+}
+
+startBtn.addEventListener('click', newGrid);
 
 const answer = {
   player: "10heure57",
@@ -22,9 +44,9 @@ async function postAnswer(url, request) {
   return response.json();
 }
 
-postAnswer('https://julwicrapi.herokuapp.com/api/v1/longest_words', requestOptions)
-.then(response => {
-  console.log(response);
-}).catch(error => {
-  console.log('ERROR', error);
-});
+// postAnswer('https://julwicrapi.herokuapp.com/api/v1/longest_words', requestOptions)
+// .then(response => {
+//   console.log(response);
+// }).catch(error => {
+//   console.log('ERROR', error);
+// });

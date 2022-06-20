@@ -5,7 +5,24 @@
   <%- include('./partials/nav.ejs') %>
 
   <div id="misc">
+    <div class="longest-word">
+      <h1>Welcome to the longest word.</h1>
 
+      <div class="grid-letters" id="grid"></div>
+      <div class="longest-word-result">
+          <h1>RESULT</h1>
+        <div class="longest-word-result-input"> You said :</div>
+        <div class="longest-word-result-message">  </div>
+        <div class="longest-word-result-score"> Your score is :</div>
+      </div>
+     <div class="longest-word-form">
+       <form action="/score" method="post" data-turbo="false">
+         <input type="text" name="input" placeholder="What's your catch ?" class='longest-word-form-input'>
+         <input type="submit" value="Submit !" class='longest-word-form-submit'>
+       </form>
+     </div>
+     <div id="startlongest"></div>
+    </div>
   </div>
 
   <%- include('./partials/footer.ejs') %>
