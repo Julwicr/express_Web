@@ -8,16 +8,18 @@
     <div class="longest-word">
       <h1>The longest word.</h1>
       <p class="longest-word-rules">Find the longest english word in the grid and submit. <br> Click on new game  when you are ready! <br> <em> it will take some time the first time as the site is on sleep when not used. </em></p>
-      <div class="longest-word-form">
-       <form action="#" id="longestform">
-         <input type="text" name="input" placeholder="What's your catch ?" class='longest-word-form-input'>
-         <input type="submit" value="Submit !" class='longest-word-form-submit'>
-       </form>
-      </div>
+
+      <form class="longest-word-form" id="longestform">
+        <input type="text" name="player" placeholder="Your name or pseudo" class='longest-word-form-player' id="longestplayer">
+         <input type="text" name="input" placeholder="What's your catch ?" class='longest-word-form-input' id="longestinput">
+         <input type="submit" value="Submit !" class='longest-word-form-submit' id="longestsubmit">
+      </form>
+
       <div class="grid-letters" id="grid"></div>
       <div class="longest-word-result" id="longestresult"></div>
-      <div class="longest-word-top">Top scores:</div>
-     <button id="startlongest">Start new game.</button>
+      <div class="longest-word-top" id="longesttop">Top scores:</div>
+      <div class="longest-word-latest" id="longestlatest">Latest:</div>
+     <button id="startlongest">New <br> game</button>
     </div>
   </div>
 
