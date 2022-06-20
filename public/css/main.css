@@ -234,6 +234,11 @@ body {
   font-size: 1rem;
 }
 
+#misc {
+  height: 100vh;
+  width: 100vw;
+}
+
 .logo-badge {
   background-color: #0000ff;
   width: 4rem;
