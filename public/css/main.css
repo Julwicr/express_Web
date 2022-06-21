@@ -95,6 +95,10 @@ body {
   background-color: #f7f7f7;
 }
 
+#contactcanvas {
+  position: absolute;
+}
+
 .contact-form {
   position: relative;
   top: 25%;
