@@ -63,24 +63,40 @@
  &-submit {
   padding: 10px 20px;
   background-color: $blue;
-  color: white;
+  color: $bg-color;
   border: none;
   transition: 0.2s ease-in-out;
  }
 
  &-submit:hover {
- background-color: white;
+ background-color: $bg-color;
  color: $blue;
  }
 
  &-input {
   color: $blue;
+  background-color: $bg-color;
   padding: 10px 15px;
   border: none;
   font-size: 15px;
+  width: 150px;
  }
 
  &-input:focus {
+ border: none;
+ outline: 2px solid $blue;
+ }
+
+ &-player {
+  color: $blue;
+  background-color: $bg-color;
+  padding: 10px 15px;
+  border: none;
+  font-size: 15px;
+  width: 150px;
+ }
+
+ &-player:focus {
  border: none;
  outline: 2px solid $blue;
  }
@@ -112,5 +128,16 @@
 
   div {
     padding: 15px;
+  }
+}
+
+.scores-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 10px 30px;
+
+  div {
+    padding: 5px;
   }
 }

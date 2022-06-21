@@ -22,4 +22,6 @@ body {
   font-family: $fira;
   font-weight: 500;
   background-color: $bg-color;
+  position: relative;
+  min-height: 100vh;
 }

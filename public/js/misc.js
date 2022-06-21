@@ -7,7 +7,8 @@ const playerInput = document.getElementById('longestinput');
 const submit = document.getElementById('longestsubmit');
 const player = document.getElementById('longestplayer');
 const result = document.getElementById('longestresult');
-const longesLatest = document.getElementById('longestlatest');
+const longestLatest = document.getElementById('longestlatest');
+const longestTop = document.getElementById('longesttop');
 
 let startAnswer;
 let endAnswer;
@@ -18,6 +19,7 @@ const toggleInput = () => {
   inputs[0].style.opacity = 1;
   inputs[1].disabled = Boolean(inputs[1].disabled) ? false : true;
   inputs[2].disabled = Boolean(inputs[2].disabled) ? false : true;
+  result.style.display = 'none';
 }
 toggleInput();
 form.style.opacity = 0.5;
@@ -71,8 +73,8 @@ form.addEventListener('submit', (e) => {
   // POST longest_words
   postAnswer('https://julwicrapi.herokuapp.com/api/v1/longest_words', requestOptions)
   .then(response => {
-    console.log(response);
     appendResult(response);
+    result.style.display = '';
   }).catch(error => {
     console.log('ERROR', error);
   });
@@ -89,25 +91,39 @@ async function postAnswer(url, request) {
 const appendResult = (results) => {
   const element = document.createElement('div');
   element.classList.add('longest-word-result-item');
+  result.innerHTML = '';
   element.innerHTML = `${results.result} <br> Score: <strong>${results.score}</strong> Time: ${results.time/1000} seconds.`;
   result.appendChild(element);
 }
 
 
+async function getScores(url) {
+  const response = await fetch(url);
+  return response.json();
+}
+
 // latest games
 
-fetch('https://julwicrapi.herokuapp.com/api/v1/longest_words')
-  .then(response => response.json())
-  .then(data => {
+getScores('https://julwicrapi.herokuapp.com/api/v1/longest_words')
+.then(data => {
     for (let i = 0; i < 5; i++) {
-      appendLatestGame(data[i]);
+      appendGames(longestLatest, data[i]);
     }
   });
 
+// top games
+
+getScores('https://julwicrapi.herokuapp.com/api/v1/longest_words/top').then(data => {
+  data.forEach(game => {
+    appendGames(longestTop, game);
+  });
+});
+
+
   // inject result function
-const appendLatestGame = (game) => {
+const appendGames = (target, game) => {
   const element = document.createElement('div');
   element.classList.add('longest-word-result-item');
-  element.innerHTML = `${game.player} - Score: ${game.score} Time: ${game.time/1000} seconds.`;
-  longesLatest.appendChild(element);
+  element.innerHTML = `${game.player} scored: <strong>${game.score}</strong> in ${Math.round(game.time/1000)}s with ${game.answer.toUpperCase()}`;
+  target.appendChild(element);
 }
