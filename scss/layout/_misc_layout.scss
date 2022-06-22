@@ -141,3 +141,38 @@
     padding: 5px;
   }
 }
+
+@media only screen and (max-width: 550px) {
+  #misc {
+    display: flex;
+    flex-flow: column;
+  }
+
+  .longest-word {
+    &-rules {
+      position: unset;
+    }
+
+    &-form {
+      width: 200px;
+      height: 125px;
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+
+      * {
+        padding: 5px;
+        margin: 5px;
+      }
+    }
+  }
+
+  .letter {
+    margin: 2px;
+  }
+
+  #startlongest {
+    top: 198px;
+    left: 30px;
+  }
+}
