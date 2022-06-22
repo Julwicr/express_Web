@@ -1,12 +1,14 @@
 #about-page {
   height: 100vh;
+  background-image: linear-gradient(96deg, rgb(0, 0, 255) 1px, transparent 1px), linear-gradient(93deg, rgb(0, 0, 255) 1px, transparent 1px);
+  background-size: 20px 25px, 30px 35px;
 }
 
 .about-page-text {
-  margin: 2%;
   display: flex;
   flex-flow: column;
   justify-content: space-between;
+  align-items: center;
 }
 
 .bio {
@@ -30,11 +32,11 @@
 
 #logo3d {
   filter: invert(8%) sepia(100%) saturate(5748%) hue-rotate(244deg) brightness(114%) contrast(140%);
-  width: 25rem;
+  width: 20rem;
   position: absolute;
   right: 3rem;
   bottom: 1%;
-  opacity: 0.2;
+  opacity: 0.5;
 }
 
 @keyframes logo3danim {

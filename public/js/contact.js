@@ -33,86 +33,69 @@ notif.style.opacity = '0';
     form.addEventListener("submit", handleSubmit)
 
 // Toggle form
-sendMessage = document.getElementById('send-message');
-let toggle = 0;
-sendMessage.addEventListener('click', (event) => {
-  if (toggle === 0) {
-    form.style.transform = 'translateY(0px)';
-    form.style.opacity = '1';
-    toggle++;
-    setFilter(120);
-    setContactBg(x, y);
-  } else {
-    form.style.transform = 'translateY(-300px)';
-    form.style.opacity = '0';
-    toggle--;
-    setFilter(0);
-  }
-})
-
-// change color
-const setFilter = (x) => document.body.style.filter = `hue-rotate(${x}deg)`;
-
-// background contact
-const contactBg = document.getElementById('contact');
-const formInput = document.getElementsByClassName('form-input');
-
-const setContactBg = (x, y) => {
-  contactBg.style.backgroundImage = 'linear-gradient(#0000ff 1px, transparent 1px), linear-gradient(95deg, #0000ff 1px, transparent 1px)';
-  contactBg.style.backgroundSize = `100px 15px, ${x}px ${y}px, 20px 20px, 20px 20px`;
-};
-
-let x = 3;
-let y = 15;
-
-for (let i = 0; i < formInput.length; i++) {
-  const input = formInput[i];
-  input.addEventListener('keyup', (e) => {
-    setContactBg(x, y);
-    x > 15 ? x = 3 : x++;
-    y > 100 ? y = 15 : y += 5;
-  });
-}
+// sendMessage = document.getElementById('send-message');
+// let toggle = 0;
+// sendMessage.addEventListener('click', (event) => {
+//   if (toggle === 0) {
+//     form.style.transform = 'translateY(0px)';
+//     form.style.opacity = '1';
+//     toggle++;
+//   } else {
+//     form.style.transform = 'translateY(-300px)';
+//     form.style.opacity = '0';
+//     toggle--;
+//   }
+// })
 
 
 // CANVAS
 
-const rndRgb = () => {
-  const rnd = Math.floor(Math.random() * 3);
-  switch (rnd) {
-   case 0:
-     return '#ff0000';
-     break;
-   case 1:
-     return '#00ff00';
-     break;
-   case 2:
-     return '#0000ff';
-     break;
-  }
- }
-
- 
 const canvas = document.getElementById('contactcanvas');
 const ctx = canvas.getContext('2d');
+let drawings = [];
 
 const resizeCanvas = () => {
   canvas.height = innerHeight;
   canvas.width = innerWidth;
 }
-window.addEventListener('resize', resizeCanvas);
+window.addEventListener('resize', () => {
+  resizeCanvas();
+  // solves issue of black drawings when resized
+  canvasSetting('green', 'blue', 'green', 0.8, 0.6, 0.2);
+
+  drawDrawing(10);
+});
 resizeCanvas();
 
-ctx.globalCompositeOperation = 'destination-over';
-ctx.lineWidth = 0.5;
-ctx.fillStyle = rndRgb();
-ctx.strokeStyle = rndRgb();
+// canvas settings
 
-ctx.shadowOffsetY = 5;
-ctx.shadowBlur = 3;
-ctx.shadowColor = 'rgba(255,0,0,0.7)';
+const canvasSetting = (fillC, shadowC, strokeC, fillA, shadowA, strokeA) => {
+  function setColor(color) {
+    switch (color) {
+      case 'red':
+      return '255, 0, 0';
+      case 'green':
+      return '0, 255, 0';
+      case 'blue':
+      return '0, 0, 255';
+    }
+  }
+  ctx.fillStyle = `rgba(${setColor(fillC)}, ${fillA})`;
+  ctx.shadowColor = `rgba(${setColor(shadowC)}, ${shadowA})`;
+  ctx.strokeStyle = `rgba(${setColor(strokeC)}, ${strokeA})`;
 
-class Root {
+  ctx.globalCompositeOperation = 'destination-over';
+  ctx.lineWidth = 0.2;
+  ctx.shadowOffsetX = 3;
+  ctx.shadowOffsetY = 3;
+  ctx.shadowBlur = 2;
+}
+
+canvasSetting('green', 'blue', 'green', 0.8, 0.6, 0.2);
+
+
+
+class Drawing {
   constructor(x, y) {
     this.x = x;
     this.y = y;
@@ -120,8 +103,8 @@ class Root {
       x: Math.random() * 4 - 2,
       y: Math.random() * 4 - 2
     };
-    this.maxSize = Math.random() * 7 + 50;
-    this.size = Math.random() * 1 + 2;
+    this.maxSize = Math.random() * 10 + 40;
+    this.size = Math.random() * 1 + 3;
     this.vs = Math.random() * 0.2 + 0.5;
     this.angleX = Math.random() * 6.2;
     this.vax = Math.random() * 0.6 - 0.3;
@@ -150,11 +133,42 @@ class Root {
   }
 }
 
-for (let i = 0; i < 30; i++) {
-  const spawn = {
-    x: Math.random() * innerWidth,
-    y: Math.random() * innerHeight
+const drawDrawing = (number) => {
+  for (let i = 0; i < number; i++) {
+    const spawn = {
+      x: (innerWidth/10) + Math.random() * (innerWidth - (innerWidth/5)),
+      y: (innerHeight/10) + Math.random() * (innerHeight - (innerHeight/5))
+    };
+    const drawing = new Drawing(spawn.x, spawn.y);
+    drawing.update();
+    drawings.push(drawing);
   }
-  const root = new Root(spawn.x, spawn.y);
-  root.update();
 }
+
+const drawDrawings = (x, y, times) => {
+  for (let i = 0; i < times; i++) {
+    const drawing = new Drawing(x, y);
+    drawing.update();
+    drawings.push(drawing);
+  }
+}
+
+
+// Refires existing
+const redrawDrawing = () => {
+  for (let i = 0; i < drawings.length; i++) {
+    const drawing = drawings[i];
+    drawing.size = Math.random() * 20;
+    drawing.angle = Math.random() * 50;
+    drawing.x += Math.random() * 250;
+    drawing.y += Math.random() * 100;
+    drawing.update();
+  }
+}
+
+form.addEventListener('keyup', () => redrawDrawing());
+
+canvas.addEventListener('click', (e) => drawDrawings(e.x, e.y - (innerHeight / 35), 4));
+
+const onloadDrawings = innerWidth / innerHeight * 5
+drawDrawing(onloadDrawings);

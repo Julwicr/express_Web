@@ -48,13 +48,15 @@ body {
 
 #about-page {
   height: 100vh;
+  background-image: linear-gradient(96deg, rgb(0, 0, 255) 1px, transparent 1px), linear-gradient(93deg, rgb(0, 0, 255) 1px, transparent 1px);
+  background-size: 20px 25px, 30px 35px;
 }
 
 .about-page-text {
-  margin: 2%;
   display: flex;
   flex-flow: column;
   justify-content: space-between;
+  align-items: center;
 }
 
 .bio {
@@ -77,11 +79,11 @@ body {
 
 #logo3d {
   filter: invert(8%) sepia(100%) saturate(5748%) hue-rotate(244deg) brightness(114%) contrast(140%);
-  width: 25rem;
+  width: 20rem;
   position: absolute;
   right: 3rem;
   bottom: 1%;
-  opacity: 0.2;
+  opacity: 0.5;
 }
 
 @keyframes logo3danim {
@@ -99,49 +101,30 @@ body {
   position: absolute;
 }
 
-.contact-form {
-  position: relative;
-  top: 25%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 400px;
-  border-radius: 0.5rem;
-}
-.contact-form h2 {
-  text-align: center;
-  background-color: #0000ff;
-  color: #f7f7f7;
-  margin: 0;
-  font-size: medium;
-  font-weight: 500;
-  padding: 1rem 0rem;
-  transition: 0.5s ease-in-out;
-}
-
-.container-form {
-  overflow: hidden;
-}
-
 .form {
-  transform: translateY(-300px);
+  position: relative;
+  top: 50px;
+  left: 25px;
+  width: 300px;
+  border-radius: 0.5rem;
+  opacity: 0.9;
+  padding: 5px;
   transition: 0.5s ease-in-out;
-  background-color: #f7f7f7;
-  display: flex;
-  flex-flow: column;
-  align-items: center;
 }
 .form label {
-  padding: 0.5rem 2rem;
-  align-self: start;
+  display: none;
+}
+.form input {
+  width: 45%;
 }
 .form-button {
-  width: 100%;
-  color: #f7f7f7;
-  background-color: #0000ff;
+  color: #0000ff;
+  background-color: #f7f7f7;
   font-weight: bolder;
-  border: 1px solid #0000ff;
-  padding: 0.5rem;
-  transition: 0.5s ease-in-out;
+  border: 1px ridge #0000ff;
+  padding: 0.3rem;
+  transition: 0.2s ease-in-out;
+  width: 45%;
 }
 .form-button:hover {
   animation: 0.5s linear colorrgb;
@@ -160,14 +143,13 @@ body {
 }
 
 .form-input {
+  width: 93%;
   resize: none;
   outline: 1px ridge rgba(0, 0, 255, 0.4);
   color: #0000ff;
-  width: 98%;
   border: none;
-  max-width: 85%;
   border: none;
-  margin: 0.5rem;
+  padding: 0.5rem;
 }
 .form-input:focus {
   border: none;
@@ -175,6 +157,9 @@ body {
 
 @keyframes colorrgb {
   0% {
+    background-color: #f7f7f7;
+  }
+  10% {
     background-color: #0000ff;
   }
   35% {
@@ -183,14 +168,26 @@ body {
   65% {
     background-color: #00ff00;
   }
+  90% {
+    background-color: #f7f7f7;
+  }
 }
 @media only screen and (max-width: 550px) {
-  .contact-form {
+  .form {
     width: 250px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .form-button {
+    width: 35%;
+  }
+  .form input {
+    width: 57%;
   }
   .form-status {
-    top: 100px;
-    right: 30px;
+    top: 280px;
+    left: 30px;
   }
 }
 #works {
