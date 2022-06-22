@@ -5,10 +5,8 @@ canvas.height = window.innerHeight;
 
 // Sizing canvas
 const resizeCanvas = () => {
-  const height = window.innerHeight;
-  const width = window.innerWidth;
-  canvas.height = height;
-  canvas.width = width;
+  canvas.height = innerHeight;
+  canvas.width = innerWidth;
 }
 window.addEventListener('resize', resizeCanvas);
 

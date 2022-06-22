@@ -2,54 +2,37 @@
   height: 100vh;
   width: 100vw;
   background-color: $bg-color;
-  // background-image:
-  //   	linear-gradient($blue 1px, transparent 1px),
-  //   	linear-gradient(95deg, $blue 1px, transparent 1px);
-  // background-size: 100px 15px, 15px 100px, 20px 20px, 20px 20px;
 }
 
-.contact-form {
-  position: relative;
-  top: 25%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 400px;
-  border-radius: 0.5rem;
-  h2 {
-    text-align: center;
-    background-color: $blue;
-    color: $bg-color;
-    margin: 0;
-    font-size: medium;
-    font-weight: 500;
-    padding: 1rem 0rem;
-    transition: 0.5s ease-in-out;
-  }
-}
-
-.container-form {
-  overflow: hidden;
+#contactcanvas {
+  position: absolute;
 }
 
 .form {
-  transform:translateY(-300px);
+  position: relative;
+  top: 50px;
+  left: 25px;
+  width: 300px;
+  border-radius: 0.5rem;
+  opacity: 0.9;
+  padding: 5px;
   transition: 0.5s ease-in-out;
-  background-color: $bg-color;
-  display: flex;
-  flex-flow: column;
-  align-items: center;
   label {
-    padding: 0.5rem 2rem;
-    align-self: start;
+    display: none;
   }
+
+  input {
+    width: 45%;
+  }
+
   &-button {
-    width: 100%;
-    color: $bg-color;
-    background-color: $blue;
+    color: $blue;
+    background-color: $bg-color;
     font-weight: bolder;
-    border: 1px solid $blue;
-    padding: 0.5rem;
-    transition: 0.5s ease-in-out;
+    border: 1px ridge $blue;
+    padding: 0.3rem;
+    transition: 0.2s ease-in-out;
+    width: 45%;
 
     &:hover {
       animation:  0.5s linear colorrgb;
@@ -71,14 +54,13 @@
 }
 
 .form-input {
+  width: 93%;
   resize: none;
   outline: 1px ridge rgba(0, 0, 255, 0.4);
   color: $blue;
-  width: 98%;
   border: none;
-  max-width: 85%;
   border: none;
-  margin: 0.5rem;
+  padding: 0.5rem;
   &:focus {
     border: none;
   }
@@ -87,8 +69,12 @@
 
 @keyframes colorrgb {
 	0% {
-		background-color: $blue;
+		background-color: $bg-color;
 	}
+
+  10% {
+    background-color: $blue;
+  }
 
 	35% {
 		background-color: $red;
@@ -97,15 +83,30 @@
 	65% {
 		background-color: $green;
 	}
+
+  90% {
+    background-color: $bg-color;
+  }
 }
 
 @media only screen and (max-width: 550px) {
-  .contact-form {
+  .form {
     width: 250px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    &-button {
+      width: 35%;
+    }
+
+    input {
+      width: 57%;
+    }
   }
 
   .form-status {
-    top: 100px;
-    right: 30px;
+    top: 280px;
+    left: 30px;
   }
 }
