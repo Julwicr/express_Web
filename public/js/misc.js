@@ -38,6 +38,7 @@ const newGrid = () => {
   toggleInput();
   form.style.opacity = 1;
   startBtn.hidden = true;
+  playerInput.value = '';
 }
 
 startBtn.addEventListener('click', newGrid);

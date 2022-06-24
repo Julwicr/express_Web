@@ -1,6 +1,6 @@
 #about-page {
   height: 100vh;
-  background-image: linear-gradient(96deg, rgb(0, 0, 255) 1px, transparent 1px), linear-gradient(93deg, rgb(0, 0, 255) 1px, transparent 1px);
+  background-image: linear-gradient(96deg, $blue 1px, transparent 1px), linear-gradient(93deg, rgb(0, 0, 255) 1px, transparent 1px);
   background-size: 20px 25px, 30px 35px;
 }
 
@@ -22,11 +22,10 @@
 .config {
   color: $blue;
   border: 2px solid $blue;
-  // border-radius: 5px;
   width: 170px;
   background-color: $bg-color;
   padding: 1rem;
-  margin: 1rem;
+  margin: 5rem;
   left: 50px;
 }
 
@@ -37,10 +36,11 @@
   right: 3rem;
   bottom: 1%;
   opacity: 0.5;
+  display: none;
 }
 
-@keyframes logo3danim {
-  0% {
-	stroke-dashoffset: 800;
- }
+@media only screen and (max-width: 550px) {
+  #about-page {
+    height: max-content;
+  }
 }
