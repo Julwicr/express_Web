@@ -45,6 +45,7 @@
 }
 
 .letter {
+transition: all 0.3s ease-in-out;
  font-weight: bolder;
  margin: 0px 35px;
  font-size: 25px;
@@ -54,6 +55,13 @@
  color: $blue;
  border: 2px solid white;
  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.typed {
+ color: $bg-color;
+ background-color: $blue;
+ border: 2px solid $blue;
+ box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
 .longest-word-form {

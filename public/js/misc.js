@@ -39,6 +39,8 @@ const newGrid = () => {
   form.style.opacity = 1;
 }
 
+startBtn.addEventListener('click', newGrid);
+
 // inject grid letters
 const appendLetters = (letters) => {
   letters.forEach(letter => {
@@ -49,7 +51,25 @@ const appendLetters = (letters) => {
   });
 }
 
-startBtn.addEventListener('click', newGrid);
+// highlight letter when typed
+playerInput.addEventListener('keyup', () => {
+  const lettersInput = playerInput.value.toUpperCase().split('');
+  const letters = Array.from(document.querySelectorAll('.letter'));
+
+  letters.forEach(letter => {
+    if (lettersInput.includes(letter.innerHTML)) {
+      const index = lettersInput.indexOf(letter.innerHTML);
+      letter.classList.add("typed");
+      lettersInput.splice(index, 1);
+    } else  {
+      letter.classList.remove("typed");
+    }
+  });
+
+})
+const highlightLetter = (letter) => {
+
+}
 
 // getting the answer
 form.addEventListener('submit', (e) => {
