@@ -27,7 +27,6 @@ form.style.opacity = 0.5;
 // GET new grid longest_words
 const newGrid = () => {
   startAnswer = new Date;
-  console.log(startAnswer);
   grid.style.opacity = 1;
   grid.innerHTML = '';
   fetch('https://julwicrapi.herokuapp.com/api/v1/longest_words/new')

@@ -86,12 +86,12 @@ const canvasSetting = (fillC, shadowC, strokeC, fillA, shadowA, strokeA) => {
 
   ctx.globalCompositeOperation = 'destination-over';
   ctx.lineWidth = 0.2;
-  ctx.shadowOffsetX = 3;
-  ctx.shadowOffsetY = 3;
+  ctx.shadowOffsetX = 1;
+  ctx.shadowOffsetY = 1;
   ctx.shadowBlur = 2;
 }
 
-canvasSetting('green', 'blue', 'green', 0.8, 0.6, 0.2);
+canvasSetting('blue', 'green', 'blue', 0.4, 0.8, 0.1);
 
 
 
@@ -100,18 +100,18 @@ class Drawing {
     this.x = x;
     this.y = y;
     this.speed = {
-      x: Math.random() * 4 - 2,
-      y: Math.random() * 4 - 2
+      x: Math.random() * 4 - 3,
+      y: Math.random() * 4 - 3
     };
     this.maxSize = Math.random() * 10 + 40;
-    this.size = Math.random() * 1 + 3;
-    this.vs = Math.random() * 0.2 + 0.5;
-    this.angleX = Math.random() * 6.2;
+    this.size = Math.random() * 1 + 1;
+    this.vs = Math.random() * 0.2 + 0.4;
+    this.angleX = Math.random() * 6;
     this.vax = Math.random() * 0.6 - 0.3;
-    this.angleY = Math.random() * 6.2;
+    this.angleY = Math.random() * 6;
     this.vay = Math.random() * 0.6 - 0.3;
     this.angle = 0;
-    this.va = Math.random() * 0.2 + 0.08;
+    this.va = Math.random() * 0.1 + 0.01;
   }
 
   update() {
@@ -158,17 +158,19 @@ const drawDrawings = (x, y, times) => {
 const redrawDrawing = () => {
   for (let i = 0; i < drawings.length; i++) {
     const drawing = drawings[i];
-    drawing.size = Math.random() * 20;
-    drawing.angle = Math.random() * 50;
-    drawing.x += Math.random() * 250;
-    drawing.y += Math.random() * 100;
+    drawing.size = Math.random() * 5;
+    drawing.angle += Math.random() * 90;
+    drawing.x += Math.random() * 25;
+    drawing.y += Math.random() * 10;
     drawing.update();
   }
 }
 
 form.addEventListener('keyup', () => redrawDrawing());
 
-canvas.addEventListener('click', (e) => drawDrawings(e.x, e.y - (innerHeight / 35), 4));
+canvas.addEventListener('click', (e) => {
+  drawDrawings(e.x, e.y - (innerHeight / 35), Math.random() * 15);
+});
 
-const onloadDrawings = innerWidth / innerHeight * 5
+const onloadDrawings = innerWidth / innerHeight * 10
 drawDrawing(onloadDrawings);
