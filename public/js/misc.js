@@ -37,6 +37,7 @@ const newGrid = () => {
   });
   toggleInput();
   form.style.opacity = 1;
+  startBtn.hidden = true;
 }
 
 startBtn.addEventListener('click', newGrid);
@@ -94,6 +95,7 @@ form.addEventListener('submit', (e) => {
   .then(response => {
     appendResult(response);
     result.style.display = '';
+    startBtn.hidden = false;
   }).catch(error => {
     console.log('ERROR', error);
   });
