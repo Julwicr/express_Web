@@ -1,20 +1,18 @@
-// #works {
-//   width: 100vw;
-//   height: 100vh;
-// }
 .projects {
   width: 100vw;
   height: 100vh;
-  background-color: pink;
+  display: flex;
 
   &-list {
+    padding: 50px;
     width: 25%;
-    height: 100%;
-    background-color: rgba(0, 0, 255, 0.288);
+    border-right: 5px dotted $blue;
+    font-size: 2rem;
   }
 
   &-preview {
-
+    width: 75%;
+    height: 100%;
   }
 }
 
@@ -25,6 +23,8 @@
 }
 
 .github {
+  position: fixed;
+  bottom: 40px;
   padding: 10px;
   margin: 50px;
   background-color: $bg-color;
