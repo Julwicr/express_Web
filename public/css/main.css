@@ -17,10 +17,6 @@ body {
 
 #homecanvas {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
   background-color: #f7f7f7;
   z-index: -1;
 }
@@ -29,7 +25,9 @@ body {
   width: 300px;
   background-color: rgba(247, 247, 247, 0.4);
   border-radius: 5px;
-  margin: 35px 50px;
+  position: absolute;
+  top: 65px;
+  left: 50px;
 }
 .greetings h1 {
   margin: 0;
@@ -187,11 +185,16 @@ body {
     left: 30px;
   }
 }
-#works {
+.projects {
   width: 100vw;
   height: 100vh;
+  background-color: pink;
 }
-
+.projects-list {
+  width: 25%;
+  height: 100%;
+  background-color: rgba(0, 0, 255, 0.288);
+}
 #github-repos {
   display: flex;
   flex-flow: column;
@@ -238,9 +241,10 @@ body {
   width: 100vw;
 }
 #misc h1 {
-  padding: 30px;
+  padding: 45px;
   text-align: center;
   color: rgba(0, 0, 255, 0.8);
+  margin: 0;
 }
 
 #startlongest {
@@ -452,9 +456,12 @@ body {
   }
 }
 #navigation {
+  z-index: 20;
   width: 100%;
   background-color: rgba(0, 0, 255, 0.8);
   margin: 0;
+  position: absolute;
+  transition: all 0.3s ease-in-out;
 }
 #navigation a {
   text-decoration: none;
@@ -464,7 +471,14 @@ body {
   color: white;
 }
 #navigation a:hover {
-  animation: blink 0.5s linear 1;
+  animation: blink 0.8s linear 1;
+}
+
+.wrapper-navlinks {
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 @keyframes blink {
@@ -481,13 +495,23 @@ body {
     color: white;
   }
 }
+@media only screen and (min-width: 550px) {
+  #navigation {
+    height: 2rem;
+  }
+  .hide-nav {
+    transform: translateY(-1.5rem);
+  }
+}
 @media only screen and (max-width: 550px) {
+  #navigation {
+    height: 4rem;
+  }
+  .hide-nav {
+    transform: translate(-90%, -2.5rem);
+  }
   .wrapper-navlinks {
-    height: 5rem;
-    display: flex;
-    flex-wrap: wrap;
     justify-content: space-around;
-    align-items: center;
   }
 }
 #footer {

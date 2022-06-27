@@ -1,7 +1,10 @@
 #navigation {
- width: 100%;
+  z-index: 20;
+  width: 100%;
   background-color: $blue;
   margin: 0;
+  position: absolute;
+  transition: all 0.3s ease-in-out;
   a {
     text-decoration: none;
     padding: 0px 2rem;
@@ -11,8 +14,15 @@
   }
 
   a:hover {
-    animation: blink 0.5s linear 1;
+    animation: blink 0.8s linear 1;
   }
+}
+
+.wrapper-navlinks {
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 @keyframes blink {
@@ -34,12 +44,25 @@
 
 }
 
+@media only screen and (min-width: 550px) {
+  #navigation {
+    height: 2rem;
+  }
+  .hide-nav {
+    transform: translateY(-1.5rem);
+  }
+}
+
 @media only screen and (max-width: 550px) {
+  #navigation {
+    height: 4rem;
+  }
+
+  .hide-nav {
+    transform: translate(-90%, -2.5rem);
+  }
+
   .wrapper-navlinks {
-    height: 5rem;
-    display: flex;
-    flex-wrap: wrap;
     justify-content: space-around;
-    align-items: center;
   }
 }

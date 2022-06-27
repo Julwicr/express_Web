@@ -1,6 +1,21 @@
-#works {
+// #works {
+//   width: 100vw;
+//   height: 100vh;
+// }
+.projects {
   width: 100vw;
   height: 100vh;
+  background-color: pink;
+
+  &-list {
+    width: 25%;
+    height: 100%;
+    background-color: rgba(0, 0, 255, 0.288);
+  }
+
+  &-preview {
+
+  }
 }
 
 #github-repos {
