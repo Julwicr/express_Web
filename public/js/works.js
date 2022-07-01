@@ -12,7 +12,10 @@ const getRepos = async() => {
     link.textContent = repo.full_name.replace('Julwicr', '');
     link.dataset.hover = repo.description;
     repoContainer.appendChild(link);
-    console.log(repo)
   });
 }
 getRepos();
+
+const worksContainer = document.querySelector('.projects-preview');
+
+worksContainer.addEventListener('scroll', (e) => console.log(worksContainer.getBoundingClientRect()));

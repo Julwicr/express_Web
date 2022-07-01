@@ -4,27 +4,49 @@
   display: flex;
 
   &-list {
-    padding: 50px;
-    width: 25%;
-    border-right: 5px dotted $blue;
+    width: 20%;
+    border-right: 2px dotted $blue;
     font-size: 2rem;
+    padding-top: 25px;
+
+    button {
+      color: $blue;
+      font-size: 1.3rem;
+      border: none;
+      background: none;
+      text-align: left;
+      padding: 20px;
+      line-height: 2rem;
+      transition: all 0.4s ease-in-out;
+    }
+
+    button:hover {
+      text-decoration: underline lighten($blue, 5%);
+    }
   }
 
   &-preview {
-    width: 75%;
-    height: 100%;
+    overflow: scroll;
+  }
+}
+
+.projects-preview-item {
+  box-shadow: 2px 2px 2px #00000010;
+  img {
+    width: 70%;
+    margin: 100px auto;
+    padding: 20px 0px;
+    display: block;
   }
 }
 
 #github-repos {
   display: flex;
   flex-flow: column;
-
+  padding-bottom: 50px;
 }
 
-.github {
-  position: fixed;
-  bottom: 40px;
+#github-repos {
   padding: 10px;
   margin: 50px;
   background-color: $bg-color;

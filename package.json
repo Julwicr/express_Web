@@ -6,8 +6,8 @@
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js",
-    "sass-dev": "sass --watch --update --style=expanded scss:public/css",
-    "sass-prod": "sass --no-source-map --style=compressed scss:public/css"
+    "sass-dev": "node-sass --watch --update --style=expanded scss/main.scss public/css/main.css",
+    "sass-prod": "node-sass --no-source-map --style=compressed scss/main.scss public/css/main.css"
   },
   "keywords": [],
   "author": "",
