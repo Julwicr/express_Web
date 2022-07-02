@@ -178,9 +178,12 @@ body {
       text-decoration: underline rgba(26, 26, 255, 0.8); }
   .projects-preview {
     overflow: scroll; }
+    .projects-preview:last-child {
+      box-shadow: none; }
 
 .projects-preview-item {
-  box-shadow: 2px 2px 2px #00000010; }
+  box-shadow: 2px 2px 2px #00000010;
+  min-height: 90vh; }
   .projects-preview-item img {
     width: 70%;
     margin: 100px auto;
@@ -190,16 +193,12 @@ body {
 #github-repos {
   display: flex;
   flex-flow: column;
-  padding-bottom: 50px; }
-
-#github-repos {
   padding: 10px;
   margin: 50px;
   background-color: #f7f7f7;
   color: rgba(0, 0, 255, 0.8);
   width: 230px;
-  font-size: 0.8rem;
-  border: 2px solid rgba(0, 0, 255, 0.8); }
+  font-size: 0.8rem; }
   #github-repos a {
     position: relative;
     border-bottom: 1px dotted black;

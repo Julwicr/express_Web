@@ -27,11 +27,16 @@
 
   &-preview {
     overflow: scroll;
+
+    &:last-child {
+      box-shadow: none;
+    }
   }
 }
 
 .projects-preview-item {
   box-shadow: 2px 2px 2px #00000010;
+  min-height: 90vh;
   img {
     width: 70%;
     margin: 100px auto;
@@ -43,17 +48,12 @@
 #github-repos {
   display: flex;
   flex-flow: column;
-  padding-bottom: 50px;
-}
-
-#github-repos {
   padding: 10px;
   margin: 50px;
   background-color: $bg-color;
   color: $blue;
   width: 230px;
   font-size: 0.8rem;
-  border: 2px solid $blue;
 
   a {
     position: relative;
