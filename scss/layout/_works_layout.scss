@@ -8,6 +8,7 @@
     border-right: 2px dotted $blue;
     font-size: 2rem;
     padding-top: 25px;
+    box-shadow: -2px 0px 10px $blue;
 
     button {
       color: $blue;
@@ -37,12 +38,21 @@
 .projects-preview-item {
   box-shadow: 2px 2px 2px #00000010;
   min-height: 90vh;
+  transition: all 1s ease-in;
   img {
     width: 70%;
     margin: 100px auto;
     padding: 20px 0px;
     display: block;
   }
+}
+
+.hide-project {
+  opacity: 0;
+}
+
+.highlight-project {
+  font-weight: bold;
 }
 
 #github-repos {
