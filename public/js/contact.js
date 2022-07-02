@@ -32,21 +32,6 @@ notif.style.opacity = '0';
     }
     form.addEventListener("submit", handleSubmit)
 
-// Toggle form
-// sendMessage = document.getElementById('send-message');
-// let toggle = 0;
-// sendMessage.addEventListener('click', (event) => {
-//   if (toggle === 0) {
-//     form.style.transform = 'translateY(0px)';
-//     form.style.opacity = '1';
-//     toggle++;
-//   } else {
-//     form.style.transform = 'translateY(-300px)';
-//     form.style.opacity = '0';
-//     toggle--;
-//   }
-// })
-
 
 // CANVAS
 
@@ -93,7 +78,7 @@ const canvasSetting = (fillC, shadowC, strokeC, fillA, shadowA, strokeA) => {
 
 canvasSetting('blue', 'green', 'blue', 0.4, 0.8, 0.1);
 
-
+// Generate random drawings
 
 class Drawing {
   constructor(x, y) {
@@ -145,14 +130,8 @@ const drawDrawing = (number) => {
   }
 }
 
-const drawDrawings = (x, y, times) => {
-  for (let i = 0; i < times; i++) {
-    const drawing = new Drawing(x, y);
-    drawing.update();
-    drawings.push(drawing);
-  }
-}
-
+const onloadDrawings = innerWidth / innerHeight * 5
+drawDrawing(onloadDrawings);
 
 // Refires existing
 const redrawDrawing = () => {
@@ -166,11 +145,94 @@ const redrawDrawing = () => {
   }
 }
 
-form.addEventListener('keyup', () => redrawDrawing());
+form.addEventListener('keyup', redrawDrawing);
 
-canvas.addEventListener('click', (e) => {
-  drawDrawings(e.x, e.y - (innerHeight / 35), Math.random() * 15);
+
+// Draw WORM
+
+class Draw {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+    this.size = Math.random() * 50 + 10;
+    this.vs = Math.random() * 1.5 + 1;
+    this.angle = Math.random() * 10;
+    this.va = Math.random() * 0.05 + 0.01;
+    this.directionX = Math.random() * 3 - 2.5;
+    this.directionY = Math.random() * 3 - 2.5;
+  }
+
+  draw() {
+    const height = this.size * Math.cos(Math.PI / 6);
+    const start = {
+      x: this.x - (this.size/2),
+      y: this.y + height / 2,
+    }
+
+    ctx.save();
+    ctx.translate(this.x, this.y);
+    ctx.rotate(this.angle);
+    ctx.translate(-this.x, -this.y);
+
+    ctx.beginPath();
+    ctx.moveTo(start.x, start.y);
+    ctx.lineTo(start.x + this.size, start.y);
+    ctx.lineTo(start.x + (this.size / 2), start.y - height);
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.restore();
+  }
+
+  update() {
+    if (this.x > canvas.width || this.x < 0 || Math.random() * 100 < 0.1) {
+      this.directionX = -this.directionX;
+    }
+    if (this.y > canvas.height || this.y < 0 || Math.random() * 100 < 0.1) {
+      this.directionY = -this.directionY;
+    }
+
+    this.x += this.directionX;
+    this.y += this.directionY;
+
+    this.angle += this.va;
+
+    if (this.size > 80 || this.size < 25) {
+      this.vs = -this.vs;
+    }
+    this.size += this.vs;
+
+    ctx.save();
+    ctx.translate(this.x, this.y);
+    ctx.rotate(this.angle);
+    ctx.translate(-this.x, -this.y);
+    this.draw();
+
+    ctx.restore();
+  }
+}
+
+// FOLLOW MOUSE to implement
+// let mouse = {
+//   x: null,
+//   y: null,
+//   radius: (canvas.height/100) * (canvas.width/100)
+// }
+
+let worm;
+let toggleFrame = false;
+
+const init = () => {
+  worm = new Draw(Math.random() * innerWidth, innerHeight);
+  worm.draw();
+}
+
+const animate = () => {
+  requestAnimationFrame(animate);
+  worm.update();
+}
+
+canvas.addEventListener('click', () => {
+  init();
+  animate();
 });
-
-const onloadDrawings = innerWidth / innerHeight * 10
-drawDrawing(onloadDrawings);
