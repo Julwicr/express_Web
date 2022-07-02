@@ -164,7 +164,8 @@ body {
     width: 20%;
     border-right: 2px dotted rgba(0, 0, 255, 0.8);
     font-size: 2rem;
-    padding-top: 25px; }
+    padding-top: 25px;
+    box-shadow: -2px 0px 10px rgba(0, 0, 255, 0.8); }
     .projects-list button {
       color: rgba(0, 0, 255, 0.8);
       font-size: 1.3rem;
@@ -183,12 +184,19 @@ body {
 
 .projects-preview-item {
   box-shadow: 2px 2px 2px #00000010;
-  min-height: 90vh; }
+  min-height: 90vh;
+  transition: all 1s ease-in; }
   .projects-preview-item img {
     width: 70%;
     margin: 100px auto;
     padding: 20px 0px;
     display: block; }
+
+.hide-project {
+  opacity: 0; }
+
+.highlight-project {
+  font-weight: bold; }
 
 #github-repos {
   display: flex;

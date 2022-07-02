@@ -13,7 +13,7 @@ addEventListener('resize', () => console.log(scrollable));
 // SCROLL event
 worksContainer.addEventListener('scroll', (e) => {
   const scroll = worksContainer.scrollTop;
-  // console.log(scroll, imgs[0].offsetTop);
+  console.log(scroll);
 });
 
 
@@ -46,6 +46,17 @@ for (let i = 0; i < projectsList.length; i++) {
 }
 
 
+
+// highligh current project
+
+function currentProject(scrolled) {
+
+}
+
+projectsList.forEach(project => {
+  project.classList.add('highlight-project');
+});
+
 // getting github repos
 const repoContainer = document.getElementById('github-repos')
 
@@ -63,3 +74,10 @@ const getRepos = async() => {
   });
 }
 getRepos();
+// TEST
+
+addEventListener('click', () => {
+  works.forEach(work => {
+    work.classList.add('hide-project');
+  });
+})
