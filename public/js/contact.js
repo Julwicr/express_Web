@@ -32,21 +32,6 @@ notif.style.opacity = '0';
     }
     form.addEventListener("submit", handleSubmit)
 
-// Toggle form
-// sendMessage = document.getElementById('send-message');
-// let toggle = 0;
-// sendMessage.addEventListener('click', (event) => {
-//   if (toggle === 0) {
-//     form.style.transform = 'translateY(0px)';
-//     form.style.opacity = '1';
-//     toggle++;
-//   } else {
-//     form.style.transform = 'translateY(-300px)';
-//     form.style.opacity = '0';
-//     toggle--;
-//   }
-// })
-
 
 // CANVAS
 
@@ -93,7 +78,7 @@ const canvasSetting = (fillC, shadowC, strokeC, fillA, shadowA, strokeA) => {
 
 canvasSetting('blue', 'green', 'blue', 0.4, 0.8, 0.1);
 
-
+// Generate random drawings
 
 class Drawing {
   constructor(x, y) {
@@ -145,14 +130,8 @@ const drawDrawing = (number) => {
   }
 }
 
-const drawDrawings = (x, y, times) => {
-  for (let i = 0; i < times; i++) {
-    const drawing = new Drawing(x, y);
-    drawing.update();
-    drawings.push(drawing);
-  }
-}
-
+const onloadDrawings = innerWidth / innerHeight * 10
+// drawDrawing(onloadDrawings); OFF
 
 // Refires existing
 const redrawDrawing = () => {
@@ -168,9 +147,78 @@ const redrawDrawing = () => {
 
 form.addEventListener('keyup', () => redrawDrawing());
 
-canvas.addEventListener('click', (e) => {
-  drawDrawings(e.x, e.y - (innerHeight / 35), Math.random() * 15);
+
+// Draw on click
+
+class Draw {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+    this.size = Math.random() * 10 + 1;
+    // this.vs = Math.random() * 0.2 + 0.4;
+    // this.angleX = Math.random() * 6;
+    // this.vax = Math.random() * 0.6 - 0.3;
+    // this.angleY = Math.random() * 6;
+    // this.vay = Math.random() * 0.6 - 0.3;
+    this.angle = 0;
+    // this.va = Math.random() * 0.1 + 0.01;
+  }
+
+  draw() {
+    const height = this.size * Math.cos(Math.PI / 6);
+    const start = {
+      x: this.x - (this.size/2),
+      y: this.y + height / 2,
+    }
+
+    ctx.beginPath();
+    ctx.moveTo(start.x, start.y);
+    ctx.lineTo(start.x + this.size, start.y);
+    ctx.lineTo(start.x + (this.size / 2), start.y - height);
+    ctx.closePath();
+    ctx.fill();
+  }
+
+  update() {
+    console.log('updated');
+    // this.size ++;
+
+    // this.angle ++;
+
+    // ctx.save();
+    // ctx.rotate(this.angle);
+    // this.draw();
+    // requestAnimationFrame(this.update.bind(this));
+    // ctx.restore();
+  }
+}
+
+
+
+let isDrawing = false;
+let userDraw = [];
+
+const userDrawing = (e) => {
+  if (!isDrawing) return
+  const draw = new Draw(e.x, e.y);
+  draw.draw();
+  userDraw.push(draw);
+}
+
+const updateDraw = () => {
+  userDraw.forEach(draw => {
+      console.log('update function');
+      draw.update;
+  });
+};
+
+addEventListener('mousedown', () => isDrawing = true);
+addEventListener('mouseup', () => isDrawing = false);
+addEventListener('mouseout', () => isDrawing = false);
+
+canvas.addEventListener('mousemove', (e) => {
+  userDrawing(e);
+  updateDraw();
 });
 
-const onloadDrawings = innerWidth / innerHeight * 10
-drawDrawing(onloadDrawings);
+canvas.addEventListener('mouseup', () => console.log(userDraw));
