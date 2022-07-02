@@ -130,8 +130,8 @@ const drawDrawing = (number) => {
   }
 }
 
-const onloadDrawings = innerWidth / innerHeight * 10
-// drawDrawing(onloadDrawings); OFF
+const onloadDrawings = innerWidth / innerHeight * 5
+drawDrawing(onloadDrawings);
 
 // Refires existing
 const redrawDrawing = () => {
@@ -145,23 +145,21 @@ const redrawDrawing = () => {
   }
 }
 
-form.addEventListener('keyup', () => redrawDrawing());
+form.addEventListener('keyup', redrawDrawing);
 
 
-// Draw on click
+// Draw WORM
 
 class Draw {
   constructor(x, y) {
     this.x = x;
     this.y = y;
-    this.size = Math.random() * 10 + 1;
-    // this.vs = Math.random() * 0.2 + 0.4;
-    // this.angleX = Math.random() * 6;
-    // this.vax = Math.random() * 0.6 - 0.3;
-    // this.angleY = Math.random() * 6;
-    // this.vay = Math.random() * 0.6 - 0.3;
-    this.angle = 0;
-    // this.va = Math.random() * 0.1 + 0.01;
+    this.size = Math.random() * 50 + 10;
+    this.vs = Math.random() * 1.5 + 1;
+    this.angle = Math.random() * 10;
+    this.va = Math.random() * 0.05 + 0.01;
+    this.directionX = Math.random() * 3 - 2.5;
+    this.directionY = Math.random() * 3 - 2.5;
   }
 
   draw() {
@@ -171,54 +169,70 @@ class Draw {
       y: this.y + height / 2,
     }
 
+    ctx.save();
+    ctx.translate(this.x, this.y);
+    ctx.rotate(this.angle);
+    ctx.translate(-this.x, -this.y);
+
     ctx.beginPath();
     ctx.moveTo(start.x, start.y);
     ctx.lineTo(start.x + this.size, start.y);
     ctx.lineTo(start.x + (this.size / 2), start.y - height);
     ctx.closePath();
     ctx.fill();
+
+    ctx.restore();
   }
 
   update() {
-    console.log('updated');
-    // this.size ++;
+    if (this.x > canvas.width || this.x < 0 || Math.random() * 100 < 0.1) {
+      this.directionX = -this.directionX;
+    }
+    if (this.y > canvas.height || this.y < 0 || Math.random() * 100 < 0.1) {
+      this.directionY = -this.directionY;
+    }
 
-    // this.angle ++;
+    this.x += this.directionX;
+    this.y += this.directionY;
 
-    // ctx.save();
-    // ctx.rotate(this.angle);
-    // this.draw();
-    // requestAnimationFrame(this.update.bind(this));
-    // ctx.restore();
+    this.angle += this.va;
+
+    if (this.size > 80 || this.size < 25) {
+      this.vs = -this.vs;
+    }
+    this.size += this.vs;
+
+    ctx.save();
+    ctx.translate(this.x, this.y);
+    ctx.rotate(this.angle);
+    ctx.translate(-this.x, -this.y);
+    this.draw();
+
+    ctx.restore();
   }
 }
 
+// FOLLOW MOUSE to implement
+// let mouse = {
+//   x: null,
+//   y: null,
+//   radius: (canvas.height/100) * (canvas.width/100)
+// }
 
+let worm;
+let toggleFrame = false;
 
-let isDrawing = false;
-let userDraw = [];
-
-const userDrawing = (e) => {
-  if (!isDrawing) return
-  const draw = new Draw(e.x, e.y);
-  draw.draw();
-  userDraw.push(draw);
+const init = () => {
+  worm = new Draw(Math.random() * innerWidth, innerHeight);
+  worm.draw();
 }
 
-const updateDraw = () => {
-  userDraw.forEach(draw => {
-      console.log('update function');
-      draw.update;
-  });
-};
+const animate = () => {
+  requestAnimationFrame(animate);
+  worm.update();
+}
 
-addEventListener('mousedown', () => isDrawing = true);
-addEventListener('mouseup', () => isDrawing = false);
-addEventListener('mouseout', () => isDrawing = false);
-
-canvas.addEventListener('mousemove', (e) => {
-  userDrawing(e);
-  updateDraw();
+canvas.addEventListener('click', () => {
+  init();
+  animate();
 });
-
-canvas.addEventListener('mouseup', () => console.log(userDraw));
