@@ -28,6 +28,7 @@
 
   &-preview {
     overflow: scroll;
+    width: 100%;
   }
 }
 
@@ -37,7 +38,7 @@
   margin: 50px 0px;
 
   img {
-    width: 70%;
+    max-width: 55vw;
     margin: 100px auto;
     display: block;
     transition: opacity 800ms ease-in-out;

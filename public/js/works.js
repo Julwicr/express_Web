@@ -72,7 +72,7 @@ works.forEach(work => observer.observe(work));
 
 const imgOption = {
   root: worksContainer,
-  threshold: 0.5,
+  threshold: 0.1,
   rootMargin: '-100px'
 }
 

@@ -178,14 +178,15 @@ body {
     .projects-list button:hover {
       text-decoration: underline rgba(26, 26, 255, 0.8); }
   .projects-preview {
-    overflow: scroll; }
+    overflow: scroll;
+    width: 100%; }
 
 .projects-preview-item {
   min-height: 90vh;
   transition: all 1.5s ease-in-out;
   margin: 50px 0px; }
   .projects-preview-item img {
-    width: 70%;
+    max-width: 55vw;
     margin: 100px auto;
     display: block;
     transition: opacity 800ms ease-in-out;
