@@ -1,7 +1,7 @@
 const projectsList = document.querySelectorAll('.project-list-item');
 const worksContainer = document.querySelector('.projects-preview');
 const works = document.querySelectorAll('.projects-preview-item');
-const imgs = document.getElementsByTagName('img');
+const imgs = [...document.getElementsByTagName('img')];
 
 const scrollable = worksContainer.scrollHeight;
 
@@ -13,7 +13,7 @@ addEventListener('resize', () => console.log(scrollable));
 // SCROLL event
 worksContainer.addEventListener('scroll', (e) => {
   const scroll = worksContainer.scrollTop;
-  console.log(scroll);
+  // console.log(scroll);
 });
 
 
@@ -45,7 +45,29 @@ for (let i = 0; i < projectsList.length; i++) {
   countProject += 1;
 }
 
+// SCROLL Controller
 
+// Project controller
+const option = {
+  root: worksContainer,
+  threshold: 0.2,
+  rootMargin: '100px'
+};
+
+const observer = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) {
+      entry.target.classList.add('hide-project');
+    } else {
+      entry.target.classList.remove('hide-project');
+    }
+    // console.log(entry.target, entry.isIntersecting);
+  });
+}, option);
+
+works.forEach((work) => {
+  observer.observe(work);
+});
 
 // highligh current project
 
@@ -55,6 +77,31 @@ function currentProject(scrolled) {
 
 projectsList.forEach(project => {
   project.classList.add('highlight-project');
+});
+
+// Image controller
+
+const imgOption = {
+  root: worksContainer,
+  threshold: 0.5,
+  rootMargin: '-100px'
+}
+
+const imgObserver = new IntersectionObserver((imgs, imgObserver) => {
+  imgs.forEach(img => {
+    console.log(img.target, img.isIntersecting);
+    if (!img.isIntersecting) {
+      img.target.style.opacity = '0';
+      img.target.classList.remove('img-effect');
+    } else {
+      img.target.style.opacity = '1';
+      img.target.classList.add('img-effect');
+    }
+  });
+}, imgOption)
+
+imgs.forEach((img) => {
+  imgObserver.observe(img);
 });
 
 // getting github repos
@@ -76,8 +123,8 @@ const getRepos = async() => {
 getRepos();
 // TEST
 
-addEventListener('click', () => {
-  works.forEach(work => {
-    work.classList.add('hide-project');
-  });
-})
+// addEventListener('click', () => {
+//   works.forEach(work => {
+//     work.classList.add('hide-project');
+//   });
+// })

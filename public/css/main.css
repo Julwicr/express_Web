@@ -185,18 +185,29 @@ body {
 .projects-preview-item {
   box-shadow: 2px 2px 2px #00000010;
   min-height: 90vh;
-  transition: all 1s ease-in; }
+  transition: all 1.5s ease-in-out; }
   .projects-preview-item img {
     width: 70%;
     margin: 100px auto;
     padding: 20px 0px;
-    display: block; }
+    display: block;
+    transition: opacity 1s; }
 
 .hide-project {
   opacity: 0; }
 
 .highlight-project {
   font-weight: bold; }
+
+.img-effect {
+  animation: f 3s linear;
+  opacity: 1; }
+
+@keyframes f {
+  from {
+    clip-path: polygon(100% 0, 100% 0, 100% 0, 100% 0, 0 100%, 0 100%, 0 100%, 0 100%); }
+  10%, to {
+    clip-path: polygon(0 50%, 0 0, 100% 0, 100% 50%, 0 50%, 0 100%, 100% 100%, 100% 50%); } }
 
 #github-repos {
   display: flex;
