@@ -5,10 +5,6 @@ const imgs = [...document.getElementsByTagName('img')];
 
 const scrollable = worksContainer.scrollHeight;
 
-// console.log(projectsList);
-// print scrollable height
-addEventListener('resize', () => console.log(scrollable));
-
 
 // SCROLL event
 worksContainer.addEventListener('scroll', (e) => {
@@ -17,8 +13,7 @@ worksContainer.addEventListener('scroll', (e) => {
 });
 
 
-// CLICK project event
-// click ajout le height de ts les preedents project
+// CLICK event -> go to project
 
 const setScroll = (order) => {
   let toScroll = 0;
@@ -45,7 +40,7 @@ for (let i = 0; i < projectsList.length; i++) {
   countProject += 1;
 }
 
-// SCROLL
+// SCROLL ->  Hide events
 
 // Project controller
 
@@ -105,10 +100,3 @@ const getRepos = async() => {
   });
 }
 getRepos();
-// TEST
-
-// addEventListener('click', () => {
-//   works.forEach(work => {
-//     work.classList.add('hide-project');
-//   });
-// })
