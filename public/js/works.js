@@ -1,24 +1,19 @@
 const projectsList = document.querySelectorAll('.project-list-item');
 const worksContainer = document.querySelector('.projects-preview');
 const works = document.querySelectorAll('.projects-preview-item');
-const imgs = document.getElementsByTagName('img');
+const imgs = [...document.getElementsByTagName('img')];
 
 const scrollable = worksContainer.scrollHeight;
-
-// console.log(projectsList);
-// print scrollable height
-addEventListener('resize', () => console.log(scrollable));
 
 
 // SCROLL event
 worksContainer.addEventListener('scroll', (e) => {
   const scroll = worksContainer.scrollTop;
-  console.log(scroll);
+  // console.log(scroll);
 });
 
 
-// CLICK project event
-// click ajout le height de ts les preedents project
+// CLICK event -> go to project
 
 const setScroll = (order) => {
   let toScroll = 0;
@@ -45,17 +40,48 @@ for (let i = 0; i < projectsList.length; i++) {
   countProject += 1;
 }
 
+// SCROLL ->  Hide events
 
+// Project controller
 
-// highligh current project
+const option = {
+  root: worksContainer,
+  threshold: 0.2,
+  rootMargin: '100px'
+};
 
-function currentProject(scrolled) {
+const observer = new IntersectionObserver((entries, observer) => {
+  console.log('FIRE');
+  for (let i = 0; i < entries.length; i++) {
+    const entry = entries[i];
+    // find the corresponding project list to highlight
+    const index = parseInt(entry.target.dataset.project);
+    if (entry.isIntersecting) {
+          entry.target.classList.remove('hide-project');
+          projectsList[index].classList.add('highlight-project');
+        } else {
+          entry.target.classList.add('hide-project');
+          projectsList[index].classList.remove('highlight-project');
+        }
+  }
+}, option);
 
+works.forEach(work => observer.observe(work));
+
+// Image controller
+
+const imgOption = {
+  root: worksContainer,
+  threshold: 0.5,
+  rootMargin: '-100px'
 }
 
-projectsList.forEach(project => {
-  project.classList.add('highlight-project');
-});
+const imgObserver = new IntersectionObserver(
+  (imgs, imgObserver) => imgs.forEach(img => !img.isIntersecting ? img.target.style.opacity = '0' : img.target.style.opacity = '1'),
+  imgOption);
+
+imgs.forEach(img => imgObserver.observe(img));
+
 
 // getting github repos
 const repoContainer = document.getElementById('github-repos')
@@ -74,10 +100,3 @@ const getRepos = async() => {
   });
 }
 getRepos();
-// TEST
-
-addEventListener('click', () => {
-  works.forEach(work => {
-    work.classList.add('hide-project');
-  });
-})
