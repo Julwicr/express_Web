@@ -45,9 +45,10 @@ for (let i = 0; i < projectsList.length; i++) {
   countProject += 1;
 }
 
-// SCROLL Controller
+// SCROLL
 
 // Project controller
+
 const option = {
   root: worksContainer,
   threshold: 0.2,
@@ -55,29 +56,22 @@ const option = {
 };
 
 const observer = new IntersectionObserver((entries, observer) => {
-  entries.forEach(entry => {
-    if (!entry.isIntersecting) {
-      entry.target.classList.add('hide-project');
-    } else {
-      entry.target.classList.remove('hide-project');
-    }
-    // console.log(entry.target, entry.isIntersecting);
-  });
+  console.log('FIRE');
+  for (let i = 0; i < entries.length; i++) {
+    const entry = entries[i];
+    // find the corresponding project list to highlight
+    const index = parseInt(entry.target.dataset.project);
+    if (entry.isIntersecting) {
+          entry.target.classList.remove('hide-project');
+          projectsList[index].classList.add('highlight-project');
+        } else {
+          entry.target.classList.add('hide-project');
+          projectsList[index].classList.remove('highlight-project');
+        }
+  }
 }, option);
 
-works.forEach((work) => {
-  observer.observe(work);
-});
-
-// highligh current project
-
-function currentProject(scrolled) {
-
-}
-
-projectsList.forEach(project => {
-  project.classList.add('highlight-project');
-});
+works.forEach(work => observer.observe(work));
 
 // Image controller
 
@@ -87,22 +81,12 @@ const imgOption = {
   rootMargin: '-100px'
 }
 
-const imgObserver = new IntersectionObserver((imgs, imgObserver) => {
-  imgs.forEach(img => {
-    console.log(img.target, img.isIntersecting);
-    if (!img.isIntersecting) {
-      img.target.style.opacity = '0';
-      img.target.classList.remove('img-effect');
-    } else {
-      img.target.style.opacity = '1';
-      img.target.classList.add('img-effect');
-    }
-  });
-}, imgOption)
+const imgObserver = new IntersectionObserver(
+  (imgs, imgObserver) => imgs.forEach(img => !img.isIntersecting ? img.target.style.opacity = '0' : img.target.style.opacity = '1'),
+  imgOption);
 
-imgs.forEach((img) => {
-  imgObserver.observe(img);
-});
+imgs.forEach(img => imgObserver.observe(img));
+
 
 // getting github repos
 const repoContainer = document.getElementById('github-repos')
