@@ -9,6 +9,9 @@
     <div class="projects">
       <div class="projects-list">
         <button class="project-list-item">
+          Longest word
+        </button>
+        <button class="project-list-item">
           Careview
         </button>
         <button class="project-list-item">
@@ -19,9 +22,29 @@
         </button>
       </div>
 
-
       <div class="projects-preview">
-        <div data-project="0" class="projects-preview-item">
+
+        <div data-project="0" class="projects-preview-item longest-word">
+          <div class="longest-word-info">
+            <p> The longest word is a mini game where you have to find the longest english word out of a grid. <br> The game was created as an <a href="https://github.com/Julwicr/julwicr_api" target="blank">API</a> with ruby on rails. Try it out !
+            </p>
+            <button id="startlongest">New <br> game</button>
+          </div>
+
+          <form class="longest-word-form" id="longestform">
+            <input type="text" minlength="3" name="player" required="required" placeholder="Your name or pseudo" class='longest-word-form-player' id="longestplayer">
+             <input type="text" maxlength="10" name="input" required="required" placeholder="What's your catch ?" class='longest-word-form-input' id="longestinput">
+             <input type="submit" value="Submit !" class='longest-word-form-submit' id="longestsubmit">
+          </form>
+          <div class="grid-letters" id="grid"></div>
+          <div class="longest-word-result" id="longestresult"></div>
+          <div class="scores-container">
+            <div class="longest-word-top" id="longesttop">Top scores:</div>
+            <div class="longest-word-latest" id="longestlatest">Latest:</div>
+          </div>
+        </div>
+
+        <div data-project="1" class="projects-preview-item">
           <div class="project-info">
             Careview is the final project we have done at the end of Le wagon bootcamp with a team of 4 people. <br>
             The website helps to find a carehome where users can leave reviews and contact a carehome. <br>
@@ -35,7 +58,7 @@
           <img src="https://res.cloudinary.com/julwicr/image/upload/v1656675543/production/dashboard_eyj3tk.png" alt="screenshot careview's website dashboard">
         </div>
 
-        <div data-project="1" class="projects-preview-item">
+        <div data-project="2" class="projects-preview-item">
           <div class="project-info">
             TreeAndB is a Airbnb like website to find a treehouse to rent. <br>
             The app was created at Le Wagon with a team of 4 in a week. <br>
@@ -48,7 +71,7 @@
         </div>
 
 
-        <div data-project="2" class="projects-preview-item" id="github-repos">
+        <div data-project="3" class="projects-preview-item" id="github-repos">
           <div class="project-info">
             Quick link to all my gitHub repositories :
           </div>
@@ -60,5 +83,6 @@
 
   <!-- <# include('./partials/footer.ejs') %> -->
   <script src="js/works.js"></script>
+  <script src="js/longestWord.js"></script>
 </body>
 </html>

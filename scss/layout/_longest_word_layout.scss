@@ -1,21 +1,8 @@
-#misc {
-  width: 100vw;
-  h1 {
-    padding: 45px;
-    text-align: center;
-    color: $blue;
-    margin: 0;
-  }
-}
-
 #startlongest {
   width: 80px;
   height: 80px;
   background-color: $blue;
   color: $bg-color;
-  position: absolute;
-  top: 370px;
-  left: 150px;
   border-radius: 50%;
   border: none;
   transition: 0.2s ease-in;
@@ -65,6 +52,16 @@ transition: all 0.3s ease-in-out;
  box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
+.longest-word-info {
+  padding: 10px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  p {
+    width: 50%;
+  }
+}
+
 .longest-word-form {
  width:max-content;
  margin: 50px auto;
@@ -111,17 +108,6 @@ transition: all 0.3s ease-in-out;
  }
 }
 
-.longest-word {
-  &-rules {
-    padding: 1rem;
-    width: 250px;
-    position: absolute;
-    top: 50px;
-    left: 15px;
-    font-size: 0.9rem;
-  }
-}
-
 .longest-word-result {
   color: $blue;
   font-weight: 400;
@@ -152,36 +138,4 @@ transition: all 0.3s ease-in-out;
 }
 
 @media only screen and (max-width: 550px) {
-  #misc {
-    display: flex;
-    flex-flow: column;
-  }
-
-  .longest-word {
-    &-rules {
-      position: unset;
-    }
-
-    &-form {
-      width: 200px;
-      height: 125px;
-      display: flex;
-      flex-flow: column;
-      align-items: center;
-
-      * {
-        padding: 5px;
-        margin: 5px;
-      }
-    }
-  }
-
-  .letter {
-    margin: 2px;
-  }
-
-  #startlongest {
-    top: 198px;
-    left: 30px;
-  }
 }
