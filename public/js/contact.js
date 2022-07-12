@@ -158,8 +158,8 @@ class Draw {
     this.vs = Math.random() * 1.5 + 1;
     this.angle = Math.random() * 10;
     this.va = Math.random() * 0.05 + 0.01;
-    this.directionX = Math.random() * 3 - 2.5;
-    this.directionY = Math.random() * 3 - 2.5;
+    this.directionX = Math.random() * 3;
+    this.directionY = Math.random() * 3;
   }
 
   draw() {
@@ -185,15 +185,20 @@ class Draw {
   }
 
   update() {
-    if (this.x > canvas.width || this.x < 0 || Math.random() * 100 < 0.1) {
-      this.directionX = -this.directionX;
-    }
-    if (this.y > canvas.height || this.y < 0 || Math.random() * 100 < 0.1) {
-      this.directionY = -this.directionY;
+    if (mouse.x === null) {
+      if (this.x > canvas.width || this.x < 0 || Math.random() * 100 < 0.1) {
+        this.directionX = -this.directionX;
+      }
+      if (this.y > canvas.height || this.y < 0 || Math.random() * 100 < 0.1) {
+        this.directionY = -this.directionY;
+      }
+      this.x += this.directionX;
+      this.y += this.directionY;
+    } else {
+      mouse.x > this.x ? this.x ++ : this.x --;
+      mouse.y > this.y ? this.y ++ : this.y --;
     }
 
-    this.x += this.directionX;
-    this.y += this.directionY;
 
     this.angle += this.va;
 
@@ -212,27 +217,42 @@ class Draw {
   }
 }
 
-// FOLLOW MOUSE to implement
-// let mouse = {
-//   x: null,
-//   y: null,
-//   radius: (canvas.height/100) * (canvas.width/100)
-// }
+// FOLLOW MOUSE
+let mouse = {
+  x: null,
+  y: null
+}
+
+canvas.addEventListener('mousemove', (event) => {
+  mouse.x = event.x;
+  mouse.y = event.y;
+});
+canvas.addEventListener('mouseout', (event) => {
+  mouse.x = null;
+  mouse.y = null;
+});
 
 let worm;
-let toggleFrame = false;
+let isDrawing = true;
 
 const init = () => {
   worm = new Draw(Math.random() * innerWidth, innerHeight);
   worm.draw();
 }
 
+let request;
+
 const animate = () => {
-  requestAnimationFrame(animate);
+  request = requestAnimationFrame(animate);
   worm.update();
 }
 
 canvas.addEventListener('click', () => {
-  init();
-  animate();
+  if (isDrawing) {
+    init();
+    animate();
+  } else {
+    cancelAnimationFrame(request);
+  }
+  isDrawing ? isDrawing = false : isDrawing = true;
 });
