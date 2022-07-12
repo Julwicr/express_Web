@@ -27,10 +27,6 @@ app.get('/contact', (req, res) => {
   res.render('contact');
 });
 
-app.get('/miscellaneous', (req, res) => {
-  res.render('miscellaneous');
-});
-
 // Public directory
 app.use(express.static(path.join(__dirname, 'public')));
 

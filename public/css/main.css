@@ -244,22 +244,11 @@ body {
   #github-repos h2 {
     font-size: 1rem; }
 
-#misc {
-  width: 100vw; }
-  #misc h1 {
-    padding: 45px;
-    text-align: center;
-    color: rgba(0, 0, 255, 0.8);
-    margin: 0; }
-
 #startlongest {
   width: 80px;
   height: 80px;
   background-color: rgba(0, 0, 255, 0.8);
   color: #f7f7f7;
-  position: absolute;
-  top: 370px;
-  left: 150px;
   border-radius: 50%;
   border: none;
   transition: 0.2s ease-in; }
@@ -302,6 +291,14 @@ body {
   border: 2px solid rgba(0, 0, 255, 0.8);
   box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 3px -1px; }
 
+.longest-word-info {
+  padding: 10px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+  .longest-word-info p {
+    width: 50%; }
+
 .longest-word-form {
   width: max-content;
   margin: 50px auto;
@@ -336,14 +333,6 @@ body {
     border: none;
     outline: 2px solid rgba(0, 0, 255, 0.8); }
 
-.longest-word-rules {
-  padding: 1rem;
-  width: 250px;
-  position: absolute;
-  top: 50px;
-  left: 15px;
-  font-size: 0.9rem; }
-
 .longest-word-result {
   color: rgba(0, 0, 255, 0.8);
   font-weight: 400;
@@ -366,27 +355,6 @@ body {
   margin: 10px 30px; }
   .scores-container div {
     padding: 5px; }
-
-@media only screen and (max-width: 550px) {
-  #misc {
-    display: flex;
-    flex-flow: column; }
-  .longest-word-rules {
-    position: unset; }
-  .longest-word-form {
-    width: 200px;
-    height: 125px;
-    display: flex;
-    flex-flow: column;
-    align-items: center; }
-    .longest-word-form * {
-      padding: 5px;
-      margin: 5px; }
-  .letter {
-    margin: 2px; }
-  #startlongest {
-    top: 198px;
-    left: 30px; } }
 
 .logo-badge {
   background-color: rgba(0, 0, 255, 0.8);
