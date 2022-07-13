@@ -202,7 +202,7 @@ body {
   opacity: 0; }
 
 .highlight-project {
-  font-weight: bold; }
+  text-decoration: underline; }
 
 @keyframes f {
   from {
