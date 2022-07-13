@@ -195,8 +195,18 @@ class Draw {
       this.x += this.directionX;
       this.y += this.directionY;
     } else {
+      // follow cursor on straight line with leading coeff
+      let coeff = (mouse.y - this.y) / (mouse.x - this.x);
+      if (this.x - mouse.x < 2 && this.x - mouse.x > -2) {
+        coeff = 0;
+      } else if (coeff > 5) {
+        coeff = 3;
+      } else if (coeff < -5) {
+        coeff = -3;
+      };
+      
       mouse.x > this.x ? this.x ++ : this.x --;
-      mouse.y > this.y ? this.y ++ : this.y --;
+      mouse.x > this.x ? this.y += coeff : this.y -= coeff;
     }
 
 
