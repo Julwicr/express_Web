@@ -44,6 +44,13 @@ body {
     left: 5%;
     bottom: 10%; } }
 
+#soundcloud {
+  position: absolute;
+  right: 0;
+  bottom: 50%;
+  width: 350px;
+  height: 150px; }
+
 #about-page {
   height: 100vh;
   background-image: linear-gradient(96deg, rgba(0, 0, 255, 0.8) 1px, transparent 1px), linear-gradient(93deg, blue 1px, transparent 1px);
